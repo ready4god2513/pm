@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311185742) do
+ActiveRecord::Schema.define(:version => 20130311190410) do
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "story_id"
+    t.string   "url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "attachments", ["story_id"], :name => "index_attachments_on_story_id"
 
   create_table "integrations", :force => true do |t|
     t.integer  "project_id"
