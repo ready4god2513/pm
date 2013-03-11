@@ -2,7 +2,7 @@ class CreateStories < ActiveRecord::Migration
   def change
     create_table :stories do |t|
       t.references :project
-      t.references :pivotal_id
+      t.integer :pivotal_id
       t.string :story_type
       t.string :url
       t.integer :estimate
@@ -18,6 +18,6 @@ class CreateStories < ActiveRecord::Migration
       t.timestamps
     end
     add_index :stories, :project_id
-    add_index :stories, :pivotal_id_id
+    add_index :stories, :pivotal_id
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311190410) do
+ActiveRecord::Schema.define(:version => 20130311203554) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "story_id"
@@ -46,18 +46,16 @@ ActiveRecord::Schema.define(:version => 20130311190410) do
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "project_memberships", :force => true do |t|
+  create_table "project_users", :force => true do |t|
     t.integer  "project_id"
-    t.integer  "pivotal_id"
-    t.string   "name"
-    t.string   "email"
-    t.string   "initials"
+    t.integer  "user_id"
     t.string   "role"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "project_memberships", ["project_id"], :name => "index_project_memberships_on_project_id"
+  add_index "project_users", ["project_id"], :name => "index_project_users_on_project_id"
+  add_index "project_users", ["user_id"], :name => "index_project_users_on_user_id"
 
   create_table "projects", :force => true do |t|
     t.integer  "pivotal_id"
@@ -76,13 +74,14 @@ ActiveRecord::Schema.define(:version => 20130311190410) do
     t.string   "bugs_and_chores_are_estimatable"
     t.string   "commit_mode"
     t.string   "last_activity_at"
+    t.integer  "team_id"
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
   end
 
   create_table "stories", :force => true do |t|
     t.integer  "project_id"
-    t.integer  "pivotal_id_id"
+    t.integer  "pivotal_id"
     t.string   "story_type"
     t.string   "url"
     t.integer  "estimate"
@@ -98,7 +97,7 @@ ActiveRecord::Schema.define(:version => 20130311190410) do
     t.datetime "updated_at",          :null => false
   end
 
-  add_index "stories", ["pivotal_id_id"], :name => "index_stories_on_pivotal_id_id"
+  add_index "stories", ["pivotal_id"], :name => "index_stories_on_pivotal_id"
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
 
   create_table "tasks", :force => true do |t|
@@ -113,5 +112,21 @@ ActiveRecord::Schema.define(:version => 20130311190410) do
   end
 
   add_index "tasks", ["story_id"], :name => "index_tasks_on_story_id"
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.string   "key"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.integer  "pivotal_id"
+    t.string   "name"
+    t.string   "email"
+    t.string   "initials"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end

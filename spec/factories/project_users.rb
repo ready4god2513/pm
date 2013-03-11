@@ -1,12 +1,9 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :project_membership do
+  factory :project_user, :class => 'ProjectUsers' do
     project nil
-    pivotal_id 1
-    name "MyString"
-    email "MyString"
-    initials "MyString"
+    user nil
     role "MyString"
   end
 end

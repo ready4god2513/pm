@@ -17,6 +17,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :bugs_and_chores_are_estimatable
       t.string :commit_mode
       t.string :last_activity_at
+      t.references :team
 
       t.timestamps
     end

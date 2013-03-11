@@ -1,5 +1,11 @@
 Nomadpm::Application.routes.draw do
   
+  resources :users
+
+
+  resources :teams
+
+
   namespace :api do
     resources :project do
       resources :attachment
