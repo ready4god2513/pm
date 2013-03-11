@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130311203554) do
 
   create_table "stories", :force => true do |t|
     t.integer  "project_id"
+    t.integer  "iteration_id"
     t.integer  "pivotal_id"
     t.string   "story_type"
     t.string   "url"

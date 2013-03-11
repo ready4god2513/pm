@@ -2,6 +2,7 @@ class CreateStories < ActiveRecord::Migration
   def change
     create_table :stories do |t|
       t.references :project
+      t.references :iteration
       t.integer :pivotal_id
       t.string :story_type
       t.string :url

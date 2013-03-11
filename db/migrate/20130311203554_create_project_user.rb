@@ -1,4 +1,4 @@
-class CreateProjectUsers < ActiveRecord::Migration
+class CreateProjectUser < ActiveRecord::Migration
   def change
     create_table :project_users do |t|
       t.references :project

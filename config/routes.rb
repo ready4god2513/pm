@@ -1,8 +1,5 @@
 Nomadpm::Application.routes.draw do
   
-  resources :users
-
-
   resources :teams
 
 
@@ -11,7 +8,7 @@ Nomadpm::Application.routes.draw do
       resources :attachment
       resources :iterations
       resources :integrations
-      resources :project_memberships
+      resources :users
       
       resources :stories do
         resources :tasks

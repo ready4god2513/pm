@@ -1,5 +1,17 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  
+  context "validations" do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:pivotal_id) }
+    it { should validate_presence_of(:email) }
+  end
+  
+  
+  context "associations" do
+    it { should have_many(:project_users) }
+    it { should have_many(:projects).through(:project_users) }
+  end
+  
 end
