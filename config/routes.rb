@@ -1,4 +1,22 @@
 Nomadpm::Application.routes.draw do
+  resources :iterations
+
+
+  resources :tasks
+
+
+  resources :stories
+
+
+  resources :integrations
+
+
+  resources :project_memberships
+
+
+  resources :projects
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
