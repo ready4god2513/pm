@@ -21,6 +21,7 @@ alpha:
     - newrelic:standard
     - redistogo:nano
     - pgbackups:plus
+    - sendgrid:starter
     
 production:
   app: nomadpm
@@ -34,3 +35,4 @@ production:
     - memcachier:dev
     - newrelic:standard
     - redistogo:nano
+    - sendgrid:starter
