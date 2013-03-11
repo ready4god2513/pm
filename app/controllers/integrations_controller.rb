@@ -1,2 +1,0 @@
-class IntegrationsController < ApplicationController
-end
