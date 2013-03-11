@@ -34,4 +34,6 @@ Nomadpm::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+  
+  ENV["REDISTOGO_URL"] = "redis://redistogo:12bacf3e8300ca1cc063665a7a294cc7@viperfish.redistogo.com:9382"
 end

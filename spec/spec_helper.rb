@@ -99,7 +99,6 @@ Spork.prefork do
     # custom "be_valid" matcher that gives better information
     # spec/support/custom_matchers.rb
     config.include(CustomMatchers)
-    config.include(RequestHelper)
   end
 end
 
@@ -108,10 +107,6 @@ Spork.each_run do
   $rspec_start_time = Time.now
 
   FactoryGirl.reload
-
-  # Devise caches the user class so we need to reload it
-  # Removed as this now causes the after_transition method of a state machine to be called twice, and it does not seem to be necessary any longer
-  # reload all the models
   Dir["#{Rails.root}/app/models/**/*.rb"].each do |model|
    load model
   end
@@ -130,10 +125,8 @@ Spork.each_run do
     # custom "be_valid" matcher that gives better information
     # spec/support/custom_matchers.rb
     config.include(CustomMatchers)
-    config.include Devise::TestHelpers, type: :controller
     
     config.after(:each) do
-      Warden.test_reset!
       Capybara.reset_sessions!
     end
   end

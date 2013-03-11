@@ -35,5 +35,5 @@ Nomadpm::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-  ENV["REDISTOGO_URL"] = "redis://redistogo:12bacf3e8300ca1cc063665a7a294cc7@viperfish.redistogo.com:9382/"
+  ENV["REDISTOGO_URL"] = "redis://redistogo:12bacf3e8300ca1cc063665a7a294cc7@viperfish.redistogo.com:9382"
 end
