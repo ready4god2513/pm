@@ -60,24 +60,26 @@ ActiveRecord::Schema.define(:version => 20130311203554) do
   create_table "projects", :force => true do |t|
     t.integer  "pivotal_id"
     t.string   "name"
+    t.string   "account"
     t.integer  "iteration_length"
-    t.string   "week_start"
+    t.string   "week_start_day"
     t.string   "point_scale"
     t.string   "velocity_scheme"
     t.string   "current_velocity"
     t.string   "initial_velocity"
-    t.string   "number_of_done_iterations_to_show"
-    t.string   "labels"
-    t.string   "allow_attachments"
-    t.string   "public"
-    t.string   "use_https"
-    t.string   "bugs_and_chores_are_estimatable"
-    t.string   "commit_mode"
-    t.string   "last_activity_at"
+    t.integer  "current_iteration_number"
+    t.datetime "first_iteration_start_time"
+    t.text     "labels"
+    t.boolean  "use_https"
+    t.datetime "last_activity_at"
     t.integer  "team_id"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.string   "slug"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
+
+  add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
+  add_index "projects", ["team_id"], :name => "index_projects_on_team_id"
 
   create_table "stories", :force => true do |t|
     t.integer  "project_id"
@@ -93,13 +95,17 @@ ActiveRecord::Schema.define(:version => 20130311203554) do
     t.string   "owned_by"
     t.datetime "pivotal_created_at"
     t.datetime "pivotal_accepted_at"
-    t.string   "labels"
+    t.text     "labels"
+    t.string   "other_id"
+    t.string   "slug"
+    t.datetime "deadline"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
 
   add_index "stories", ["pivotal_id"], :name => "index_stories_on_pivotal_id"
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
+  add_index "stories", ["slug"], :name => "index_stories_on_slug", :unique => true
 
   create_table "tasks", :force => true do |t|
     t.integer  "story_id"
@@ -117,17 +123,24 @@ ActiveRecord::Schema.define(:version => 20130311203554) do
   create_table "teams", :force => true do |t|
     t.string   "name"
     t.string   "key"
+    t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "teams", ["slug"], :name => "index_teams_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
     t.integer  "pivotal_id"
     t.string   "name"
     t.string   "email"
     t.string   "initials"
+    t.string   "color"
+    t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
 end

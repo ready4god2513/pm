@@ -5,8 +5,11 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :initials
-
+      t.string :color
+      t.string :slug
       t.timestamps
     end
+    
+    add_index :users, :slug, unique: true
   end
 end

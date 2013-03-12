@@ -21,6 +21,8 @@ gem "haml-rails"
 gem "jquery-rails"
 gem "redis"
 gem "pivotal-tracker"
+gem "friendly_id"
+gem "seed-fu"
 
 group :assets do
   gem "sass-rails"

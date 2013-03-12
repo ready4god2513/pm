@@ -1,4 +1,5 @@
 class CreateStories < ActiveRecord::Migration
+  
   def change
     create_table :stories do |t|
       t.references :project
@@ -14,11 +15,15 @@ class CreateStories < ActiveRecord::Migration
       t.string :owned_by
       t.datetime :pivotal_created_at
       t.datetime :pivotal_accepted_at
-      t.string :labels
-
+      t.text :labels
+      t.string :other_id
+      t.string :slug
+      t.datetime :deadline
       t.timestamps
     end
+    
     add_index :stories, :project_id
     add_index :stories, :pivotal_id
+    add_index :stories, :slug, unique: true
   end
 end

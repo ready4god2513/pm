@@ -1,25 +1,29 @@
 class CreateProjects < ActiveRecord::Migration
+
   def change
     create_table :projects do |t|
       t.integer :pivotal_id
       t.string :name
+      t.string :account
       t.integer :iteration_length
-      t.string :week_start
+      t.string :week_start_day
       t.string :point_scale
       t.string :velocity_scheme
       t.string :current_velocity
       t.string :initial_velocity
-      t.string :number_of_done_iterations_to_show
-      t.string :labels
-      t.string :allow_attachments
-      t.string :public
-      t.string :use_https
-      t.string :bugs_and_chores_are_estimatable
-      t.string :commit_mode
-      t.string :last_activity_at
+      t.integer :current_iteration_number
+      t.datetime :first_iteration_start_time
+      t.text :labels
+      t.boolean :use_https
+      t.datetime :last_activity_at
       t.references :team
+      t.string :slug
 
       t.timestamps
     end
+
+    add_index :projects, :team_id
+    add_index :projects, :slug, unique: true
   end
 end
+
