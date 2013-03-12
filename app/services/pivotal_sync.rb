@@ -72,7 +72,7 @@ class PivotalSync
   end
 
   def import_attachments(story)
-    story.attachments.all.each do |attachment|
+    story.attachments.each do |attachment|
       a = Attachment.find_or_initialize_by_pivotal_id(attachment.id)
       a.pivotal_id = attachment.id
       a.filename = attachment.filename
@@ -87,6 +87,10 @@ class PivotalSync
 
   def projects
     @projects ||= PivotalTracker::Project.all
+  end
+  
+  def stories
+    @stories ||= projects.map { |p| p.stories.all }.flatten
   end
 
 end
