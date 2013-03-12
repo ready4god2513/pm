@@ -23,6 +23,7 @@ gem "redis"
 gem "pivotal-tracker"
 gem "friendly_id"
 gem "seed-fu"
+gem "ember-rails"
 
 group :assets do
   gem "sass-rails"
