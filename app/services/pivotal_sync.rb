@@ -6,13 +6,6 @@ class PivotalSync
     PivotalTracker::Client.token = @team.key
   end
 
-  def import
-    import_projects
-    projects.each { |p| import_stories(p) }
-  end
-
-  private
-
   def import_projects
     projects.each do |project|
       p = @team.projects.find_or_initialize_by_pivotal_id(project.id)
@@ -50,11 +43,9 @@ class PivotalSync
       s.other_id = story.other_id
       s.deadline = story.try(:deadline)
       s.save!
-      
-      import_notes(story)
     end
   end
-  
+
   def import_notes(story)
     story.notes.all.each do |note|
       n = Note.find_or_initialize_by_pivotal_id(note.id)
@@ -64,6 +55,33 @@ class PivotalSync
       n.noted_at = note.noted_at
       n.story = Story.find_by_pivotal_id(note.story_id)
       n.save!
+    end
+  end
+
+  def import_tasks(story)
+    story.tasks.all.each do |task|
+      t = Task.find_or_initialize_by_pivotal_id(task.id)
+      t.pivotal_id = task.id
+      t.description = task.description
+      t.position = task.position
+      t.complete = task.complete
+      t.pivotal_created_at = task.created_at
+      t.story = Story.find_by_pivotal_id(note.story_id)
+      t.save!
+    end
+  end
+
+  def import_attachments(story)
+    story.attachments.all.each do |attachment|
+      a = Attachment.find_or_initialize_by_pivotal_id(attachment.id)
+      a.pivotal_id = attachment.id
+      a.filename = attachment.filename
+      a.uploaded_by = attachment.uploaded_by
+      a.uploaded_at = attachment.uploaded_at
+      a.url = attachment.url
+      a.status = attachment.status
+      a.story = Story.find_by_pivotal_id(story.id)
+      a.save!
     end
   end
 

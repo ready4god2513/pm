@@ -16,8 +16,14 @@ ActiveRecord::Schema.define(:version => 20130312164609) do
   create_table "attachments", :force => true do |t|
     t.integer  "story_id"
     t.string   "url"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "pivotal_id"
+    t.string   "filename"
+    t.text     "description"
+    t.string   "uploaded_by"
+    t.datetime "uploaded_at"
+    t.string   "status"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   add_index "attachments", ["story_id"], :name => "index_attachments_on_story_id"
