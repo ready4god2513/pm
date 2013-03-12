@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130311203554) do
+ActiveRecord::Schema.define(:version => 20130312164609) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "story_id"
@@ -45,6 +45,18 @@ ActiveRecord::Schema.define(:version => 20130311203554) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+
+  create_table "notes", :force => true do |t|
+    t.integer  "story_id"
+    t.integer  "pivotal_id"
+    t.text     "text"
+    t.string   "author"
+    t.datetime "noted_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "notes", ["story_id"], :name => "index_notes_on_story_id"
 
   create_table "project_users", :force => true do |t|
     t.integer  "project_id"

@@ -1,4 +1,4 @@
-class Pivotal
+class PivotalSync
 
   def initialize(team)
     @team = team
@@ -50,6 +50,20 @@ class Pivotal
       s.other_id = story.other_id
       s.deadline = story.try(:deadline)
       s.save!
+      
+      import_notes(story)
+    end
+  end
+  
+  def import_notes(story)
+    story.notes.all.each do |note|
+      n = Note.find_or_initialize_by_pivotal_id(note.id)
+      n.pivotal_id = note.id
+      n.text = note.text
+      n.author = note.author
+      n.noted_at = note.noted_at
+      n.story = Story.find_by_pivotal_id(note.story_id)
+      n.save!
     end
   end
 
