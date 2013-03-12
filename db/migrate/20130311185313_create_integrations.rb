@@ -12,5 +12,6 @@ class CreateIntegrations < ActiveRecord::Migration
       t.timestamps
     end
     add_index :integrations, :project_id
+    add_index :integrations, :pivotal_id
   end
 end

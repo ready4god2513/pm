@@ -24,6 +24,7 @@ class CreateProjects < ActiveRecord::Migration
 
     add_index :projects, :team_id
     add_index :projects, :slug, unique: true
+    add_index :projects, :pivotal_id
   end
 end
 

@@ -45,6 +45,25 @@ class PivotalSync
       s.save!
     end
   end
+  
+  def import_memberships(project)
+    project.memberships.all.each do |membership|
+      u = User.find_or_initialize_by_email(membership.email)
+      u.pivotal_id = membership.id
+      u.name = membership.name
+      u.email = membership.email
+      u.initials = membership.initials
+      u.color ||= "##{"%06x" % (rand * 0xffffff)}"
+      u.save!
+      
+      p = Project.find_by_pivotal_id(project.id)
+      pu = u.project_users.find_or_initialize_by_project_id(p.id)
+      pu.user = u
+      pu.project = p
+      pu.role = membership.role
+      pu.save!
+    end
+  end
 
   def import_notes(story)
     story.notes.all.each do |note|

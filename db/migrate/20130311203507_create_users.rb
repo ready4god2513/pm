@@ -11,5 +11,7 @@ class CreateUsers < ActiveRecord::Migration
     end
     
     add_index :users, :slug, unique: true
+    add_index :users, :pivotal_id
+    add_index :users, :email
   end
 end

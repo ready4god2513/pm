@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20130312164609) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "attachments", ["pivotal_id"], :name => "index_attachments_on_pivotal_id"
   add_index "attachments", ["story_id"], :name => "index_attachments_on_story_id"
 
   create_table "integrations", :force => true do |t|
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(:version => 20130312164609) do
     t.datetime "updated_at",  :null => false
   end
 
+  add_index "integrations", ["pivotal_id"], :name => "index_integrations_on_pivotal_id"
   add_index "integrations", ["project_id"], :name => "index_integrations_on_project_id"
 
   create_table "iterations", :force => true do |t|
@@ -52,6 +54,8 @@ ActiveRecord::Schema.define(:version => 20130312164609) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "iterations", ["pivotal_id"], :name => "index_iterations_on_pivotal_id"
+
   create_table "notes", :force => true do |t|
     t.integer  "story_id"
     t.integer  "pivotal_id"
@@ -62,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130312164609) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "notes", ["pivotal_id"], :name => "index_notes_on_pivotal_id"
   add_index "notes", ["story_id"], :name => "index_notes_on_story_id"
 
   create_table "project_users", :force => true do |t|
@@ -96,6 +101,7 @@ ActiveRecord::Schema.define(:version => 20130312164609) do
     t.datetime "updated_at",                 :null => false
   end
 
+  add_index "projects", ["pivotal_id"], :name => "index_projects_on_pivotal_id"
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
   add_index "projects", ["team_id"], :name => "index_projects_on_team_id"
 
@@ -159,6 +165,8 @@ ActiveRecord::Schema.define(:version => 20130312164609) do
     t.datetime "updated_at", :null => false
   end
 
+  add_index "users", ["email"], :name => "index_users_on_email"
+  add_index "users", ["pivotal_id"], :name => "index_users_on_pivotal_id"
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
 end

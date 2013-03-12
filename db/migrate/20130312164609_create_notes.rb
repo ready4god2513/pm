@@ -10,5 +10,6 @@ class CreateNotes < ActiveRecord::Migration
       t.timestamps
     end
     add_index :notes, :story_id
+    add_index :notes, :pivotal_id
   end
 end

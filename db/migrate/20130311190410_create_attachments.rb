@@ -13,5 +13,6 @@ class CreateAttachments < ActiveRecord::Migration
       t.timestamps
     end
     add_index :attachments, :story_id
+    add_index :attachments, :pivotal_id
   end
 end
