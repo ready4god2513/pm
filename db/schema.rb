@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130312214548) do
+ActiveRecord::Schema.define(:version => 20130314180529) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "story_id"
@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(:version => 20130312214548) do
 
   add_index "iterations", ["pivotal_id"], :name => "index_iterations_on_pivotal_id"
 
+  create_table "labels", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.integer  "labelable_id"
+    t.string   "labelable_type"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
   create_table "notes", :force => true do |t|
     t.integer  "story_id"
     t.integer  "pivotal_id"
@@ -92,7 +101,6 @@ ActiveRecord::Schema.define(:version => 20130312214548) do
     t.string   "initial_velocity"
     t.integer  "current_iteration_number"
     t.datetime "first_iteration_start_time"
-    t.text     "labels"
     t.boolean  "use_https"
     t.datetime "last_activity_at"
     t.integer  "team_id"
@@ -115,21 +123,31 @@ ActiveRecord::Schema.define(:version => 20130312214548) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "states", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "sort_order"
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "states", ["team_id"], :name => "index_states_on_team_id"
+
   create_table "stories", :force => true do |t|
     t.integer  "project_id"
     t.integer  "iteration_id"
+    t.integer  "story_type_id"
+    t.integer  "state_id"
     t.integer  "pivotal_id"
-    t.string   "story_type"
     t.string   "url"
     t.integer  "estimate"
-    t.string   "current_state"
     t.text     "description"
     t.string   "name"
-    t.string   "requested_by"
-    t.string   "owned_by"
+    t.integer  "requestor_id"
+    t.integer  "owner_id"
     t.datetime "pivotal_created_at"
     t.datetime "pivotal_accepted_at"
-    t.text     "labels"
     t.string   "other_id"
     t.string   "slug"
     t.datetime "deadline"
@@ -137,9 +155,23 @@ ActiveRecord::Schema.define(:version => 20130312214548) do
     t.datetime "updated_at",          :null => false
   end
 
+  add_index "stories", ["owner_id"], :name => "index_stories_on_owner_id"
   add_index "stories", ["pivotal_id"], :name => "index_stories_on_pivotal_id"
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
+  add_index "stories", ["requestor_id"], :name => "index_stories_on_requestor_id"
   add_index "stories", ["slug"], :name => "index_stories_on_slug", :unique => true
+  add_index "stories", ["state_id"], :name => "index_stories_on_state_id"
+  add_index "stories", ["story_type_id"], :name => "index_stories_on_story_type_id"
+
+  create_table "story_types", :force => true do |t|
+    t.integer  "team_id"
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "story_types", ["team_id"], :name => "index_story_types_on_team_id"
 
   create_table "tasks", :force => true do |t|
     t.integer  "story_id"

@@ -6,7 +6,7 @@ class CreateAttachments < ActiveRecord::Migration
       t.integer :pivotal_id
       t.string :filename
       t.text :description
-      t.string :uploaded_by
+      t.references :uploader
       t.datetime :uploaded_at
       t.string :status
 

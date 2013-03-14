@@ -12,7 +12,9 @@ class PivotalSync
       p.current_velocity = project.current_velocity
       p.initial_velocity = project.initial_velocity
       p.iteration_length = project.iteration_length
-      p.labels = project.labels
+      project.labels.to_s.split(",").each do |l|
+        p.labels.find_or_create_by_name(l)
+      end
       p.last_activity_at = project.last_activity_at
       p.name = project.name
       p.pivotal_id = project.id
@@ -34,16 +36,35 @@ class PivotalSync
       s.pivotal_accepted_at = story.accepted_at
       s.name = story.name
       s.description = story.description
-      s.story_type = story.story_type
+      s.story_type = find_or_create_story_type(story.story_type)
       s.estimate = story.estimate
-      s.current_state = story.current_state
-      s.requested_by = story.requested_by
-      s.owned_by = story.owned_by
-      s.labels = story.labels
+      s.state = find_or_create_state(story.current_state)
+      s.requestor = User.find_by_name(story.requested_by)
+      s.owner = User.find_by_name(story.owned_by)
+      story.labels.to_s.split(",").each do |l|
+        s.labels.find_or_create_by_name(l)
+      end
       s.other_id = story.other_id
       s.deadline = story.try(:deadline)
       s.save!
     end
+  end
+  
+  def find_or_create_story_type(type)
+    t = StoryType.find_or_initialize_by_team_id_and_name(@team.id, type)
+    t.name = type
+    t.team = @team
+    t.save!
+    t
+  end
+  
+  def find_or_create_state(state)
+    s = State.find_or_initialize_by_team_id_and_name(@team.id, state)
+    s.name = state
+    s.team = @team
+    s.sort_order ||= State.count + 1
+    s.save!
+    s
   end
   
   def import_memberships(project)
@@ -70,7 +91,7 @@ class PivotalSync
       n = Note.find_or_initialize_by_pivotal_id(note.id)
       n.pivotal_id = note.id
       n.text = note.text
-      n.author = note.author
+      n.user = User.find_by_name(note.author)
       n.noted_at = note.noted_at
       n.story = Story.find_by_pivotal_id(note.story_id)
       n.save!
@@ -85,7 +106,7 @@ class PivotalSync
       t.position = task.position
       t.complete = task.complete
       t.pivotal_created_at = task.created_at
-      t.story = Story.find_by_pivotal_id(note.story_id)
+      t.story = Story.find_by_pivotal_id(story.id)
       t.save!
     end
   end
@@ -95,7 +116,7 @@ class PivotalSync
       a = Attachment.find_or_initialize_by_pivotal_id(attachment.id)
       a.pivotal_id = attachment.id
       a.filename = attachment.filename
-      a.uploaded_by = attachment.uploaded_by
+      a.uploader = User.find_by_name(attachment.uploaded_by)
       a.uploaded_at = attachment.uploaded_at
       a.url = attachment.url
       a.status = attachment.status

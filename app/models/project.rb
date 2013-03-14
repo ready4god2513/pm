@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   has_many :iteration_stories, through: :iterations, class_name: "Story"
   has_many :project_users
   has_many :users, through: :project_users
+  has_many :labels, as: :labelable
   
   validates_presence_of :team, :name, :pivotal_id
   

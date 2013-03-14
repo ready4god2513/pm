@@ -11,4 +11,3 @@ Team.seed(:id) do |s|
   s.created_at = "2013-03-11 23:52:23 UTC"
   s.updated_at = "2013-03-11 23:52:23 UTC"
 end
-

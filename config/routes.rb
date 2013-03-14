@@ -1,5 +1,14 @@
 Nomadpm::Application.routes.draw do
 
+  resources :labels
+
+
+  resources :story_types
+
+
+  resources :states
+
+
   resources :teams
 
 

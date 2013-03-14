@@ -13,7 +13,6 @@ class CreateProjects < ActiveRecord::Migration
       t.string :initial_velocity
       t.integer :current_iteration_number
       t.datetime :first_iteration_start_time
-      t.text :labels
       t.boolean :use_https
       t.datetime :last_activity_at
       t.references :team
