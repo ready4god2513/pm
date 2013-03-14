@@ -5,6 +5,7 @@ class CreateStates < ActiveRecord::Migration
       t.integer :sort_order
       t.string :name
       t.string :slug
+      t.boolean :hidden, default: false
 
       t.timestamps
     end
