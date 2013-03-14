@@ -6,7 +6,7 @@
 State.seed(:id) do |s|
   s.id = 1
   s.team_id = 1
-  s.sort_order = 1
+  s.sort_order = 5
   s.name = "accepted"
   s.slug = "accepted"
   s.created_at = "2013-03-14 18:19:26 UTC"
@@ -18,7 +18,7 @@ end
 State.seed(:id) do |s|
   s.id = 2
   s.team_id = 1
-  s.sort_order = 2
+  s.sort_order = 4
   s.name = "delivered"
   s.slug = "delivered"
   s.created_at = "2013-03-14 18:19:57 UTC"
@@ -30,7 +30,7 @@ end
 State.seed(:id) do |s|
   s.id = 3
   s.team_id = 1
-  s.sort_order = 3
+  s.sort_order = 0
   s.name = "unstarted"
   s.slug = "unstarted"
   s.created_at = "2013-03-14 18:19:57 UTC"
@@ -42,7 +42,7 @@ end
 State.seed(:id) do |s|
   s.id = 4
   s.team_id = 1
-  s.sort_order = 4
+  s.sort_order = 2
   s.name = "started"
   s.slug = "started"
   s.created_at = "2013-03-14 18:19:57 UTC"
@@ -66,7 +66,7 @@ end
 State.seed(:id) do |s|
   s.id = 6
   s.team_id = 1
-  s.sort_order = 6
+  s.sort_order = 3
   s.name = "finished"
   s.slug = "finished"
   s.created_at = "2013-03-14 18:22:49 UTC"
@@ -78,7 +78,7 @@ end
 State.seed(:id) do |s|
   s.id = 7
   s.team_id = 1
-  s.sort_order = 7
+  s.sort_order = 1
   s.name = "rejected"
   s.slug = "rejected"
   s.created_at = "2013-03-14 18:30:31 UTC"

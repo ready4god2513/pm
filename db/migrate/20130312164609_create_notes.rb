@@ -4,7 +4,6 @@ class CreateNotes < ActiveRecord::Migration
       t.references :story
       t.integer :pivotal_id
       t.text :text
-      t.string :author
       t.references :user
       t.datetime :noted_at
 

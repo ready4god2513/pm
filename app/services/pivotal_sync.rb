@@ -23,6 +23,8 @@ class PivotalSync
       p.velocity_scheme = project.velocity_scheme
       p.week_start_day = project.week_start_day
       p.save!
+      
+      import_memberships(project)
     end
   end
 
@@ -47,6 +49,10 @@ class PivotalSync
       s.other_id = story.other_id
       s.deadline = story.try(:deadline)
       s.save!
+      
+      import_notes(story)
+      import_tasks(story)
+      import_attachments(story)
     end
   end
   

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.integer  "pivotal_id"
     t.string   "filename"
     t.text     "description"
-    t.string   "uploaded_by"
+    t.integer  "uploader_id"
     t.datetime "uploaded_at"
     t.string   "status"
     t.datetime "created_at",  :null => false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.integer  "story_id"
     t.integer  "pivotal_id"
     t.text     "text"
-    t.string   "author"
+    t.integer  "user_id"
     t.datetime "noted_at"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
 
   add_index "notes", ["pivotal_id"], :name => "index_notes_on_pivotal_id"
   add_index "notes", ["story_id"], :name => "index_notes_on_story_id"
+  add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
 
   create_table "project_users", :force => true do |t|
     t.integer  "project_id"

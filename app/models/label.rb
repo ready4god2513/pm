@@ -4,8 +4,5 @@ class Label < ActiveRecord::Base
   
   extend FriendlyId
   friendly_id :name, use: :slugged
-
-
-  validates_uniqueness_of :name, scope: :labelable_id
   
 end

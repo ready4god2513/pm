@@ -1,17 +1,5 @@
 Nomadpm::Application.routes.draw do
 
-  resources :labels
-
-
-  resources :story_types
-
-
-  resources :states
-
-
-  resources :teams
-
-
   constraints(Subdomain) do
     namespace :api do
       namespace :v1 do
@@ -19,6 +7,11 @@ Nomadpm::Application.routes.draw do
           resources :iterations
           resources :integrations
           resources :users
+          
+          resources :labels
+          resources :story_types
+          resources :states
+          resources :teams
 
           resources :stories do
             resources :notes
