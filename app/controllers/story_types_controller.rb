@@ -1,2 +1,0 @@
-class StoryTypesController < ApplicationController
-end

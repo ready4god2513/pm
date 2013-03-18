@@ -5,4 +5,17 @@ class Iteration < ActiveRecord::Base
   
   validates_presence_of :project, :pivotal_id, :start, :finish
   
+  scope :current, where{
+    (start.lte my{DateTime.now.utc.beginning_of_day}) &
+    (finish.gte my{DateTime.now.utc.beginning_of_day})
+  }
+  
+  scope :future, where{
+    (start.gte my{DateTime.now.utc.beginning_of_day})
+  }
+  
+  scope :past, where{
+    (finish.lte my{DateTime.now.utc.beginning_of_day})
+  }
+  
 end
