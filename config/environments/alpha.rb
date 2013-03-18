@@ -26,8 +26,6 @@ Nomadpm::Application.configure do
   # Do not compress assets
   config.assets.compress = false
   
-  config.ember.variant = :production
-  
   # Enable threaded mode
   # config.threadsafe!
 

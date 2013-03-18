@@ -25,14 +25,16 @@ class PivotalSync
       p.save!
       
       import_memberships(project)
+      import_iterations(project)
     end
   end
 
-  def import_stories(project)
+  def import_stories(project, iteration)
     project.stories.all.each do |story|
       s = Story.find_or_initialize_by_pivotal_id(story.id)
       s.project = Project.find_by_pivotal_id(project.id)
       s.pivotal_id = story.id
+      s.iteration = Iteration.find_by_pivotal_id(iteration.id)
       s.url = story.url
       s.pivotal_created_at = story.created_at
       s.pivotal_accepted_at = story.accepted_at
@@ -53,6 +55,19 @@ class PivotalSync
       import_notes(story)
       import_tasks(story)
       import_attachments(story)
+    end
+  end
+  
+  def import_iterations(project)
+    project.iterations.all.each do |iteration|
+      i = Iteration.find_or_initialize_by_pivotal_id(iteration.id)
+      i.pivotal_id = iteration.id
+      i.project = Project.find_by_pivotal_id(project.id)
+      i.start = iteration.start
+      i.finish = iteration.finish
+      i.save!
+      
+      import_stories(project, iteration)
     end
   end
   

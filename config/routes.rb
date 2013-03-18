@@ -23,6 +23,6 @@ Nomadpm::Application.routes.draw do
     end
   end
   
-  root to: "ember#start"
+  root to: "home#start"
   
 end

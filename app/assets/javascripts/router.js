@@ -1,3 +1,0 @@
-Nomadpm.Router.map(function() {
-
-});

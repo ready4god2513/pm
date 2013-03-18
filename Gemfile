@@ -23,7 +23,7 @@ gem "redis"
 gem "pivotal-tracker"
 gem "friendly_id"
 gem "seed-fu"
-gem "ember-rails"
+gem "angularjs-rails"
 
 group :assets do
   gem "sass-rails"
@@ -52,7 +52,7 @@ end
 group :development, :test do
   gem "spork-rails"
   gem "rspec-rails"
-  gem "shoulda-matchers"
+  gem "shoulda-matchers", "1.4.2"
   gem "launchy"
   gem "capybara"
   gem "capybara-webkit"
