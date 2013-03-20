@@ -1,0 +1,8 @@
+- Iteration.find_each do |iteration|
+  %div.well
+    %h3= iteration.project.name
+    %h4= iteration.date_range
+    
+    %ol
+      - iteration.stories.find_each do |story|
+        %li= link_to story.name, story.url, target: "_blank"

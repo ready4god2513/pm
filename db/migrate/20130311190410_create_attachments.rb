@@ -5,10 +5,8 @@ class CreateAttachments < ActiveRecord::Migration
       t.string :url
       t.integer :pivotal_id
       t.string :filename
-      t.text :description
-      t.references :uploader
-      t.datetime :uploaded_at
-      t.string :status
+      t.references :user
+      t.datetime :pivotal_uploaded_at
 
       t.timestamps
     end

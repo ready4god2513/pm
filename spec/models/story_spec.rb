@@ -16,7 +16,7 @@ describe Story do
     it { should belong_to(:iteration) }
     it { should have_many(:tasks) }
     it { should have_many(:attachments) }
-    it { should have_many(:notes) }
+    it { should have_many(:comments) }
   end
   
 end

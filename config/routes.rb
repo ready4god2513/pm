@@ -14,7 +14,7 @@ Nomadpm::Application.routes.draw do
           resources :teams
 
           resources :stories do
-            resources :notes
+            resources :comments
             resources :tasks
             resources :attachment
           end

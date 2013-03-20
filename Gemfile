@@ -20,10 +20,9 @@ gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
 gem "redis"
-gem "pivotal-tracker"
+gem "pivotal_sync", ">= 0.0.6"
 gem "friendly_id"
 gem "seed-fu"
-gem "angularjs-rails"
 
 group :assets do
   gem "sass-rails"
@@ -35,6 +34,7 @@ group :assets do
   gem "compass"
   gem "compass-rails"
   gem "compass_twitter_bootstrap"
+  gem "angularjs-rails"
 end
 
 group :test do

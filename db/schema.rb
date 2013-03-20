@@ -18,16 +18,28 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.string   "url"
     t.integer  "pivotal_id"
     t.string   "filename"
-    t.text     "description"
-    t.integer  "uploader_id"
-    t.datetime "uploaded_at"
-    t.string   "status"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "user_id"
+    t.datetime "pivotal_uploaded_at"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   add_index "attachments", ["pivotal_id"], :name => "index_attachments_on_pivotal_id"
   add_index "attachments", ["story_id"], :name => "index_attachments_on_story_id"
+
+  create_table "comments", :force => true do |t|
+    t.integer  "story_id"
+    t.integer  "pivotal_id"
+    t.text     "text"
+    t.integer  "user_id"
+    t.datetime "commentd_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "comments", ["pivotal_id"], :name => "index_comments_on_pivotal_id"
+  add_index "comments", ["story_id"], :name => "index_comments_on_story_id"
+  add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "integrations", :force => true do |t|
     t.integer  "project_id"
@@ -46,10 +58,11 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
 
   create_table "iterations", :force => true do |t|
     t.integer  "pivotal_id"
+    t.integer  "project_id"
+    t.integer  "number"
     t.datetime "start"
     t.datetime "finish"
     t.float    "team_strength"
-    t.integer  "project_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -65,20 +78,6 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.datetime "updated_at",     :null => false
   end
 
-  create_table "notes", :force => true do |t|
-    t.integer  "story_id"
-    t.integer  "pivotal_id"
-    t.text     "text"
-    t.integer  "user_id"
-    t.datetime "noted_at"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "notes", ["pivotal_id"], :name => "index_notes_on_pivotal_id"
-  add_index "notes", ["story_id"], :name => "index_notes_on_story_id"
-  add_index "notes", ["user_id"], :name => "index_notes_on_user_id"
-
   create_table "project_users", :force => true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
@@ -91,23 +90,31 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
   add_index "project_users", ["user_id"], :name => "index_project_users_on_user_id"
 
   create_table "projects", :force => true do |t|
+    t.integer  "team_id"
     t.integer  "pivotal_id"
     t.string   "name"
-    t.string   "account"
+    t.string   "slug"
+    t.datetime "pivotal_created_at"
+    t.integer  "version"
     t.integer  "iteration_length"
     t.string   "week_start_day"
     t.string   "point_scale"
-    t.string   "velocity_scheme"
-    t.string   "current_velocity"
-    t.string   "initial_velocity"
-    t.integer  "current_iteration_number"
+    t.string   "account"
     t.datetime "first_iteration_start_time"
+    t.integer  "current_iteration_number"
+    t.boolean  "enable_tasks"
+    t.string   "velocity_scheme"
+    t.integer  "current_velocity"
+    t.integer  "initial_velocity"
+    t.integer  "number_of_done_iterations_to_show"
+    t.boolean  "allow_attachments"
+    t.boolean  "is_public"
     t.boolean  "use_https"
-    t.datetime "last_activity_at"
-    t.integer  "team_id"
-    t.string   "slug"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.boolean  "bugs_and_chores_are_estimatable"
+    t.boolean  "commit_mode"
+    t.datetime "pivotal_last_activity_at"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "projects", ["pivotal_id"], :name => "index_projects_on_pivotal_id"
@@ -150,9 +157,8 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.integer  "owner_id"
     t.datetime "pivotal_created_at"
     t.datetime "pivotal_accepted_at"
-    t.string   "other_id"
+    t.datetime "pivotal_updated_at"
     t.string   "slug"
-    t.datetime "deadline"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

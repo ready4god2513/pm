@@ -15,9 +15,8 @@ class CreateStories < ActiveRecord::Migration
       t.references :owner
       t.datetime :pivotal_created_at
       t.datetime :pivotal_accepted_at
-      t.string :other_id
+      t.datetime :pivotal_updated_at
       t.string :slug
-      t.datetime :deadline
       t.timestamps
     end
     
@@ -26,8 +25,7 @@ class CreateStories < ActiveRecord::Migration
     add_index :stories, :requestor_id
     add_index :stories, :owner_id
     add_index :stories, :story_type_id
-    add_index :stories, :state_id;
-    
+    add_index :stories, :state_id
     add_index :stories, :slug, unique: true
   end
 end
