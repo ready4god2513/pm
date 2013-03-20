@@ -7,8 +7,7 @@ class Importer
 
   def import_projects
     projects.each do |project|
-      p = Project.find_or_initialize_by_pivotal_id(project.id)
-      p.team = @team
+      p = @team.projects.find_or_initialize_by_pivotal_id(project.id)
       p.pivotal_id = project.id
       p.name = project.name
       p.pivotal_created_at = project.created_at
@@ -63,8 +62,9 @@ class Importer
   
   def import_iterations(pivotal, project)
     pivotal.iterations.each do |iteration|
-      i = Iteration.find_or_initialize_by_pivotal_id(iteration.id)
-      i.project = project
+      # Iteration id starts at 1 for each project, so we need to scope everything
+      # through the project or we end up overwriting things
+      i = project.iterations.find_or_initialize_by_pivotal_id(iteration.id)
       i.pivotal_id = iteration.id
       i.number = iteration.number
       i.start = iteration.start
@@ -82,10 +82,10 @@ class Importer
       s.pivotal_id = story.id
       s.project = iteration.project
       s.iteration = iteration
-      s.story_type = StoryType.find_or_create_by_name_and_team_id(story.story_type, @team.id)
+      s.story_type = @team.story_types.find_or_create_by_name(story.story_type)
       s.url = story.url
       s.estimate = story.estimate
-      s.state = State.find_or_create_by_name_and_team_id(story.current_state, @team.id)
+      s.state = @team.states.find_or_create_by_name(story.current_state)
       s.description = story.description
       s.name = story.name
       s.pivotal_created_at = story.created_at

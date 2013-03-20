@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.datetime "updated_at",    :null => false
   end
 
-  add_index "iterations", ["pivotal_id"], :name => "index_iterations_on_pivotal_id"
+  add_index "iterations", ["pivotal_id", "project_id"], :name => "index_iterations_on_pivotal_id_and_project_id"
 
   create_table "labels", :force => true do |t|
     t.string   "name"

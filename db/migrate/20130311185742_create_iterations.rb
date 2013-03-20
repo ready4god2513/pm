@@ -11,6 +11,6 @@ class CreateIterations < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :iterations, :pivotal_id
+    add_index :iterations, [:pivotal_id, :project_id]
   end
 end
