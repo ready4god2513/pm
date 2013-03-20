@@ -1,8 +1,6 @@
 - Iteration.current.each do |iteration|
-  - next if iteration.stories.empty?
-  %div.well
-    %h4= "#{iteration.project.name} - #{iteration.date_range}"
-
-    %ol
-      - iteration.stories.find_each do |story|
-        %li= link_to story.name, story.url, target: "_blank"
+  - iteration.stories.find_each do |story|
+    %div.well
+      %h5= link_to story.name, story.url, target: "_blank"
+      %h6= link_to story.project.name, story.project.url, target: "_blank"
+        

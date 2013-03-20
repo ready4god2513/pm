@@ -13,4 +13,9 @@ class Project < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
+  # What is the url for the project in pivotal?
+  def url
+    "https://www.pivotaltracker.com/projects/#{pivotal_id}"
+  end
+  
 end
