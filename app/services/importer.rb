@@ -124,6 +124,7 @@ class Importer
       c = story.comments.find_or_initialize_by_pivotal_id(comment.id)
       c.text = comment.id
       c.pivotal_created_at = comment.created_at
+      c.user = User.find_by_name(comment.author.name)
       c.save!
     end
   end
