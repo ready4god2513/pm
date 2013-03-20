@@ -1,10 +1,8 @@
-- Project.find_each do |project|
+- Iteration.current.each do |iteration|
+  - next if iteration.stories.empty?
   %div.well
-    %h3= "#{project.name} - #{project.pivotal_id}"
-    - project.iterations.each do |iteration|
-      %div.well
-        %h4= "#{project.name} - #{iteration.date_range}"
+    %h4= "#{iteration.project.name} - #{iteration.date_range}"
 
-        %ol
-          - iteration.stories.find_each do |story|
-            %li= link_to "#{project.name} - #{story.name}", story.url, target: "_blank"
+    %ol
+      - iteration.stories.find_each do |story|
+        %li= link_to story.name, story.url, target: "_blank"
