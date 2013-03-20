@@ -23,6 +23,7 @@ gem "redis"
 gem "pivotal_sync", ">= 0.0.6"
 gem "friendly_id"
 gem "seed-fu"
+gem "rails_autolink"
 
 group :assets do
   gem "sass-rails"

@@ -175,8 +175,10 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.integer  "team_id"
     t.string   "name"
     t.string   "slug"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "hidden",     :default => false
+    t.integer  "sort_order"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "story_types", ["team_id"], :name => "index_story_types_on_team_id"

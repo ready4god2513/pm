@@ -17,4 +17,6 @@ class Story < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
+  scope :by_state, lambda {|state| where{state_id.eq my{state.id}}}
+  
 end

@@ -4,6 +4,8 @@ class CreateStoryTypes < ActiveRecord::Migration
       t.references :team
       t.string :name
       t.string :slug
+      t.boolean :hidden, default: false
+      t.integer :sort_order
 
       t.timestamps
     end

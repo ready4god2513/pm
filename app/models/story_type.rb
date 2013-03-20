@@ -6,4 +6,7 @@ class StoryType < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
+  default_scope order: "sort_order ASC"
+  scope :shown, where{hidden.eq false}
+  
 end

@@ -6,4 +6,6 @@ class State < ActiveRecord::Base
   friendly_id :name, use: :slugged
   
   default_scope order: "sort_order ASC"
+  scope :shown, where{hidden.eq false}
+  
 end

@@ -9,4 +9,25 @@
     .container-fluid
       .row-fluid
         .span12
+          %div#mast-head
+            %div.span9
+              %h3
+                Today is
+                %small= Date.today.strftime("%b %d")
+            %div.span3
+              
+      .row-fluid
+        .span12
           = yield
+         
+      .row-fluid
+        .span12
+          %div#footer
+            
+      - team.users.uniq.each do |user|
+        :sass
+          .#{user.slug}-bg
+            .top
+              background: #{user.color}
+            .bottom
+              background: darken(#{user.color}, 15%)
