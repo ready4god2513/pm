@@ -1,4 +1,4 @@
-- Project.all.each do |project|
+- Project.find_each do |project|
   %div.well
     %h3= "#{project.name} - #{project.pivotal_id}"
     - project.iterations.each do |iteration|

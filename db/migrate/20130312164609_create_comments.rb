@@ -5,7 +5,7 @@ class CreateComments < ActiveRecord::Migration
       t.integer :pivotal_id
       t.text :text
       t.references :user
-      t.datetime :commentd_at
+      t.datetime :pivotal_created_at
 
       t.timestamps
     end

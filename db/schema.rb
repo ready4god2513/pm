@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.integer  "pivotal_id"
     t.text     "text"
     t.integer  "user_id"
-    t.datetime "commentd_at"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "pivotal_created_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   add_index "comments", ["pivotal_id"], :name => "index_comments_on_pivotal_id"

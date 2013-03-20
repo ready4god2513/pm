@@ -91,6 +91,8 @@ class Importer
       s.pivotal_created_at = story.created_at
       s.pivotal_updated_at = story.updated_at
       s.pivotal_accepted_at = story.accepted_at
+      s.requestor = User.find_by_name(story.requested_by.name)
+      s.owner = User.find_by_name(story.owned_by.name)
       begin
         story.labels.split(",").each do |l|
           s.labels.find_or_create_by_name(l)
@@ -98,19 +100,43 @@ class Importer
       rescue
       end
       s.save!
+      
+      import_tasks(story, s)
+      import_comments(story, s)
+      import_attachments(story, s)
     end
   end
   
-  def import_tasks(story)
-    
+  def import_tasks(pivotal, story)
+    pivotal.tasks.each do |task|
+      t = story.tasks.find_or_initialize_by_pivotal_id(task.id)
+      t.pivotal_id = task.id
+      t.description = task.description
+      t.position = task.position
+      t.complete = task.complete
+      t.pivotal_created_at = task.created_at
+      t.save!
+    end
   end
   
-  def import_comments(story)
-    
+  def import_comments(pivotal, story)
+    pivotal.comments.each do |comment|
+      c = story.comments.find_or_initialize_by_pivotal_id(comment.id)
+      c.text = comment.id
+      c.pivotal_created_at = comment.created_at
+      c.save!
+    end
   end
   
-  def import_attachments(story)
-    
+  def import_attachments(pivotal, story)
+    pivotal.attachments.each do |attachment|
+      a = story.attachments.find_or_initialize_by_pivotal_id(attachment.id)
+      a.pivotal_id = attachment.id
+      a.filename = attachment.filename
+      a.url = attachment.url
+      a.pivotal_uploaded_at = attachment.uploaded_at
+      a.save!
+    end
   end
 
   def projects
