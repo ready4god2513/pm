@@ -4,7 +4,17 @@ class Importer
     @team = team
     PivotalSync::Client.token = @team.key
   end
+  
+  def start
+    import_projects
+  end
 
+  def projects
+    @projects ||= PivotalSync::Project.all
+  end
+  
+  private
+  
   def import_projects
     projects.each do |project|
       p = @team.projects.find_or_initialize_by_pivotal_id(project.id)
@@ -122,7 +132,7 @@ class Importer
   def import_comments(pivotal, story)
     pivotal.comments.each do |comment|
       c = story.comments.find_or_initialize_by_pivotal_id(comment.id)
-      c.text = comment.id
+      c.text = comment.text
       c.pivotal_created_at = comment.created_at
       c.user = User.find_by_name(comment.author.name)
       c.save!
@@ -138,10 +148,6 @@ class Importer
       a.pivotal_uploaded_at = attachment.uploaded_at
       a.save!
     end
-  end
-
-  def projects
-    @projects ||= PivotalSync::Project.all
   end
 
 end
