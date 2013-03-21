@@ -9,4 +9,8 @@ class StoryType < ActiveRecord::Base
   default_scope order: "sort_order ASC"
   scope :shown, where{hidden.eq false}
   
+  def shown?
+    !hidden
+  end
+  
 end

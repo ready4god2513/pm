@@ -16,4 +16,11 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
+  # Darken the chosen color by 15%
+  def alt_color
+    c = color.gsub("#", "")
+    rgb = c.scan(/../).map {|color| (color.hex.to_i * (0.85)).round }
+    "#%02x%02x%02x" % rgb
+  end
+  
 end

@@ -17,6 +17,14 @@ class Story < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
-  scope :by_state, lambda {|state| where{state_id.eq my{state.id}}}
+  scope :sorting
+  
+  scope :in_iterations, lambda {|iterations| 
+    where{iteration_id.in my{iterations.map(&:id)}}
+  }
+  
+  def shown?
+    story_type.shown? && state.shown?
+  end
   
 end

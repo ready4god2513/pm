@@ -24,6 +24,7 @@ gem "pivotal_sync", ">= 0.0.6"
 gem "friendly_id"
 gem "seed-fu"
 gem "rails_autolink"
+gem "compass-colors"
 
 group :assets do
   gem "sass-rails"
