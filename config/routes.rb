@@ -2,23 +2,17 @@ Nomadpm::Application.routes.draw do
 
   constraints(Subdomain) do
     namespace :api do
-      namespace :v1 do
-        resources :project do
-          resources :iterations
-          resources :integrations
-          resources :users
-          
+      namespace :v1, format: :json do
+        resources :stories do
+          resources :comments
+          resources :tasks
+          resources :attachment
           resources :labels
-          resources :story_types
-          resources :states
-          resources :teams
-
-          resources :stories do
-            resources :comments
-            resources :tasks
-            resources :attachment
-          end
         end
+        
+        resources :users
+        resources :story_types
+        resources :states
       end
     end
   end

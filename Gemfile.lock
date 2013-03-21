@@ -14,6 +14,8 @@ GEM
       rack-cache (~> 1.2)
       rack-test (~> 0.6.1)
       sprockets (~> 2.2.1)
+    active_model_serializers (0.7.0)
+      activemodel (>= 3.0)
     activemodel (3.2.11)
       activesupport (= 3.2.11)
       builder (~> 3.0.0)
@@ -74,8 +76,6 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    compass-colors (0.9.0)
-      compass (>= 0.8.7)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
     compass_twitter_bootstrap (2.2.2.2)
@@ -264,6 +264,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   airbrake_user_attributes
   angularjs-rails
   better_errors
@@ -273,7 +274,6 @@ DEPENDENCIES
   classy_enum (~> 3.0.0)
   coffee-rails
   compass
-  compass-colors
   compass-rails
   compass_twitter_bootstrap
   dalli

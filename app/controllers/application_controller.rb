@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
     Team.find(request.subdomain) if request.subdomain.present?
   end
   
+  def default_serializer_options
+    {root: false}
+  end
+  
 end
