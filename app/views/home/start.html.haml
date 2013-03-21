@@ -1,5 +1,5 @@
 %div.row-fluid
-  - team.states.each do |state|
+  - team.states.shown.each do |state|
     %div.span2
       %h5.status-labels= state.name.upcase
       
@@ -9,7 +9,9 @@
             %div.top
               %h5= link_to story.name, story.url, target: "_blank"
             %div.bottom
-              %div.pull-left
-                %h6= link_to story.project.name, story.project.url, target: "_blank"
-              %div.pull-right
-                %h6= story.story_type.name
+              %div.row-fluid
+                %div.span12
+                  %div.pull-left
+                    %h6= link_to story.project.name, story.project.url, target: "_blank"
+                  %div.pull-right
+                    %h6= story.story_type.name
