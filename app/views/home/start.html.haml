@@ -1,7 +1,7 @@
 %div.row-fluid
   %div.span12
     - @stories.each do |story|
-      %div.story-box{class: "story-box #{story.owner.try(:slug)}-bg", "data-sort-order" => story.state.sort_order, "data-story-type" => story.story_type.slug, "data-project" => story.project.slug, "data-state" => story.state.slug, "data-shown" => story.shown?.to_s}
+      %div.story-box{class: "story-box #{story.owner.try(:slug)}-bg", "data-owner" => story.owner.try(:slug), "data-sort-order" => story.state.sort_order, "data-story-type" => story.story_type.slug, "data-project" => story.project.slug, "data-state" => story.state.slug, "data-shown" => story.shown?.to_s}
         %div.top
           %h5= link_to story.name, story.url, target: "_blank"
         %div.bottom
