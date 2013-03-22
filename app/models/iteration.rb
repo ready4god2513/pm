@@ -22,4 +22,14 @@ class Iteration < ActiveRecord::Base
     "#{start.to_formatted_s(:long)} - #{finish.to_formatted_s(:long)}"
   end
   
+  def self.current_iteration_range
+    start = finish = Date.today
+    Iteration.current.each do |iteration|
+      start = iteration.start if iteration.start < start
+      finish = iteration.finish if iteration.finish > finish
+    end
+    
+    [start.strftime("%b %d"), finish.strftime("%b %d")].join(" - ")
+  end
+  
 end

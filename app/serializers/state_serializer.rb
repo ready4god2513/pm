@@ -1,3 +1,3 @@
 class StateSerializer < ActiveModel::Serializer
-  attributes :id, :name, :sort_order, :hidden
+  attributes :id, :name, :sort_order, :hidden, :slug
 end

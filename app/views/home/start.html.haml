@@ -2,7 +2,7 @@
   %div.span12
     %div{"ng-controller" => "StoryCtrl"}
       %div{"ng-show" => "loading"}= image_tag("ajax-loader.gif")
-      %div{"ng-repeat" => "story in stories", class: "story-box {{story.owner.slug}}-bg"}
+      %div{"ng-repeat" => "story in stories", class: "story-box {{story.owner.slug}}-bg", "data-state" => "{{story.state.slug}}"}
         %div.top
           %h5= link_to "{{story.name}}", "{{story.url}}", target: "_blank"
         %div.bottom

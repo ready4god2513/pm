@@ -11,7 +11,9 @@
         .span12
           %div#mast-head
             %div.span9
-              %h3
+              %h3.pull-left.iteration_length
+                %span= Iteration.current_iteration_range
+              %h3.pull-left.today_date
                 Today is
                 %small= Date.today.strftime("%b %d")
             %div.span3
