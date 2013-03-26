@@ -1,4 +1,4 @@
-# Generated at 2013-03-19 20:54:50 -0700 with
+# Generated at 2013-03-22 08:46:24 -0700 with
 #   /Users/brandon/.rvm/gems/ruby-1.9.3-p392@global/bin/rake seeder model=User
 
 # =============== User 52 ===============
@@ -11,8 +11,9 @@ User.seed(:id) do |s|
   s.initials = "RH"
   s.color = "#77947a"
   s.slug = "rebecca-hanan"
+  s.hidden = true
   s.created_at = "2013-03-20 03:35:44 UTC"
-  s.updated_at = "2013-03-20 03:43:33 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 51 ===============
@@ -25,8 +26,9 @@ User.seed(:id) do |s|
   s.initials = "DS"
   s.color = "#0dba49"
   s.slug = "dave-stevenson"
+  s.hidden = true
   s.created_at = "2013-03-20 03:27:43 UTC"
-  s.updated_at = "2013-03-20 03:27:43 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 22 ===============
@@ -39,8 +41,9 @@ User.seed(:id) do |s|
   s.initials = "AR"
   s.color = "#cbd80f"
   s.slug = "abigail-roberts"
+  s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
-  s.updated_at = "2013-03-20 03:19:54 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 24 ===============
@@ -53,8 +56,9 @@ User.seed(:id) do |s|
   s.initials = "DS"
   s.color = "#baf5d3"
   s.slug = "deborah-stevens"
+  s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
-  s.updated_at = "2013-03-20 03:19:54 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 11 ===============
@@ -67,8 +71,9 @@ User.seed(:id) do |s|
   s.initials = "DH"
   s.color = "#33811a"
   s.slug = "deborah-havens"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:26 UTC"
-  s.updated_at = "2013-03-20 03:15:26 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 54 ===============
@@ -81,8 +86,9 @@ User.seed(:id) do |s|
   s.initials = "BR"
   s.color = "#d772da"
   s.slug = "blair-reynolds"
+  s.hidden = true
   s.created_at = "2013-03-20 03:41:42 UTC"
-  s.updated_at = "2013-03-20 03:44:58 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 50 ===============
@@ -95,8 +101,9 @@ User.seed(:id) do |s|
   s.initials = "JE"
   s.color = "#04fe72"
   s.slug = "jason-eastwood"
+  s.hidden = true
   s.created_at = "2013-03-20 03:27:43 UTC"
-  s.updated_at = "2013-03-20 03:44:58 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 56 ===============
@@ -109,8 +116,9 @@ User.seed(:id) do |s|
   s.initials = "KS"
   s.color = "#5a461b"
   s.slug = "katie-stumvoll"
+  s.hidden = true
   s.created_at = "2013-03-20 03:41:42 UTC"
-  s.updated_at = "2013-03-20 03:44:58 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 43 ===============
@@ -123,8 +131,9 @@ User.seed(:id) do |s|
   s.initials = "JS"
   s.color = "#ae7bee"
   s.slug = "justin-smith"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:47 UTC"
-  s.updated_at = "2013-03-20 03:44:58 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 27 ===============
@@ -137,8 +146,9 @@ User.seed(:id) do |s|
   s.initials = "KW"
   s.color = "#3e7268"
   s.slug = "ken-williams"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
-  s.updated_at = "2013-03-20 03:20:40 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 28 ===============
@@ -151,8 +161,9 @@ User.seed(:id) do |s|
   s.initials = "RN"
   s.color = "#dcc439"
   s.slug = "ryan-nemanic"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
-  s.updated_at = "2013-03-20 03:20:40 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 29 ===============
@@ -165,8 +176,9 @@ User.seed(:id) do |s|
   s.initials = "RW"
   s.color = "#a1c0ee"
   s.slug = "rebecca-watson"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
-  s.updated_at = "2013-03-20 03:20:40 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 30 ===============
@@ -179,8 +191,9 @@ User.seed(:id) do |s|
   s.initials = "JN"
   s.color = "#3f8b9b"
   s.slug = "jared-neusch"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
-  s.updated_at = "2013-03-20 03:20:40 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 31 ===============
@@ -193,8 +206,9 @@ User.seed(:id) do |s|
   s.initials = "MB"
   s.color = "#b82de3"
   s.slug = "michael-brodeur"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
-  s.updated_at = "2013-03-20 03:20:40 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 32 ===============
@@ -207,8 +221,9 @@ User.seed(:id) do |s|
   s.initials = "CM"
   s.color = "#8c8f27"
   s.slug = "chelsea-moore"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
-  s.updated_at = "2013-03-20 03:20:40 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 33 ===============
@@ -221,8 +236,9 @@ User.seed(:id) do |s|
   s.initials = "KP"
   s.color = "#6a03a6"
   s.slug = "karen-peterson"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
-  s.updated_at = "2013-03-20 03:20:40 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 23 ===============
@@ -235,8 +251,9 @@ User.seed(:id) do |s|
   s.initials = "TJ"
   s.color = "#32e0ec"
   s.slug = "tim-jenne"
+  s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
-  s.updated_at = "2013-03-20 03:49:21 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 34 ===============
@@ -249,8 +266,9 @@ User.seed(:id) do |s|
   s.initials = "JM"
   s.color = "#802754"
   s.slug = "justine-marcy"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 20 ===============
@@ -263,8 +281,9 @@ User.seed(:id) do |s|
   s.initials = "EJ"
   s.color = "#2f0216"
   s.slug = "eric-johnson"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
-  s.updated_at = "2013-03-20 03:15:59 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 35 ===============
@@ -277,8 +296,9 @@ User.seed(:id) do |s|
   s.initials = "SM"
   s.color = "#aef618"
   s.slug = "sue-manwaring"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 36 ===============
@@ -291,8 +311,9 @@ User.seed(:id) do |s|
   s.initials = "KM"
   s.color = "#b6feea"
   s.slug = "kim-mcgan"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 21 ===============
@@ -305,8 +326,9 @@ User.seed(:id) do |s|
   s.initials = "AT"
   s.color = "#7565d6"
   s.slug = "aaron-tesauro"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
-  s.updated_at = "2013-03-20 03:15:59 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 37 ===============
@@ -319,8 +341,9 @@ User.seed(:id) do |s|
   s.initials = "JS"
   s.color = "#7d61ea"
   s.slug = "joel-sawyer"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 38 ===============
@@ -333,8 +356,9 @@ User.seed(:id) do |s|
   s.initials = "SB"
   s.color = "#df6e1d"
   s.slug = "shaun-buckley"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 39 ===============
@@ -347,8 +371,9 @@ User.seed(:id) do |s|
   s.initials = "PD"
   s.color = "#c42df2"
   s.slug = "phil-drysdale"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 40 ===============
@@ -361,8 +386,9 @@ User.seed(:id) do |s|
   s.initials = "CMaher"
   s.color = "#ce7d5e"
   s.slug = "chuck-maher"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 41 ===============
@@ -375,8 +401,9 @@ User.seed(:id) do |s|
   s.initials = "LT"
   s.color = "#6263ec"
   s.slug = "leslie-taylor"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 42 ===============
@@ -389,8 +416,9 @@ User.seed(:id) do |s|
   s.initials = "RE"
   s.color = "#4b3612"
   s.slug = "renee-evans"
+  s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
-  s.updated_at = "2013-03-20 03:20:41 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 12 ===============
@@ -403,8 +431,9 @@ User.seed(:id) do |s|
   s.initials = "IG"
   s.color = "#daceec"
   s.slug = "isaac-gaye"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:39 UTC"
-  s.updated_at = "2013-03-20 03:49:21 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 55 ===============
@@ -417,8 +446,9 @@ User.seed(:id) do |s|
   s.initials = "JN"
   s.color = "#c8fe6b"
   s.slug = "julie-noyes"
+  s.hidden = true
   s.created_at = "2013-03-20 03:41:42 UTC"
-  s.updated_at = "2013-03-20 03:49:21 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 57 ===============
@@ -431,8 +461,9 @@ User.seed(:id) do |s|
   s.initials = "WD"
   s.color = "#a739ae"
   s.slug = "wes-dehn"
+  s.hidden = true
   s.created_at = "2013-03-20 03:44:58 UTC"
-  s.updated_at = "2013-03-20 03:49:21 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 14 ===============
@@ -445,8 +476,9 @@ User.seed(:id) do |s|
   s.initials = "TC"
   s.color = "#f7ad65"
   s.slug = "todd-casselberry"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:40 UTC"
-  s.updated_at = "2013-03-20 03:49:21 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 15 ===============
@@ -459,8 +491,9 @@ User.seed(:id) do |s|
   s.initials = "TM"
   s.color = "#318e80"
   s.slug = "toby-mcelroy"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
-  s.updated_at = "2013-03-20 03:20:47 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 19 ===============
@@ -473,8 +506,9 @@ User.seed(:id) do |s|
   s.initials = "AM"
   s.color = "#9bd557"
   s.slug = "amy-miller"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
-  s.updated_at = "2013-03-20 03:20:47 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 17 ===============
@@ -487,8 +521,9 @@ User.seed(:id) do |s|
   s.initials = "LM"
   s.color = "#f6de15"
   s.slug = "lise-marie-van-wyk"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
-  s.updated_at = "2013-03-20 03:20:47 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 13 ===============
@@ -501,8 +536,9 @@ User.seed(:id) do |s|
   s.initials = "JK"
   s.color = "#b770b3"
   s.slug = "jesse-kade"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:40 UTC"
-  s.updated_at = "2013-03-20 03:49:54 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 16 ===============
@@ -515,8 +551,9 @@ User.seed(:id) do |s|
   s.initials = "CK"
   s.color = "#f07895"
   s.slug = "cris-kerr"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
-  s.updated_at = "2013-03-20 03:41:19 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 26 ===============
@@ -529,8 +566,9 @@ User.seed(:id) do |s|
   s.initials = "RL"
   s.color = "#115e2c"
   s.slug = "richard-larcombe"
+  s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
-  s.updated_at = "2013-03-20 03:50:14 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 1 ===============
@@ -543,8 +581,9 @@ User.seed(:id) do |s|
   s.initials = "CG"
   s.color = "#e213f7"
   s.slug = "chris-gratigny"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 18 ===============
@@ -557,8 +596,9 @@ User.seed(:id) do |s|
   s.initials = "JO"
   s.color = "#406adb"
   s.slug = "john-oddo"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:59 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 53 ===============
@@ -571,8 +611,9 @@ User.seed(:id) do |s|
   s.initials = "IG"
   s.color = "#05cd47"
   s.slug = "isaac-gaye--2"
+  s.hidden = true
   s.created_at = "2013-03-20 03:41:42 UTC"
-  s.updated_at = "2013-03-20 03:41:42 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 5 ===============
@@ -585,8 +626,9 @@ User.seed(:id) do |s|
   s.initials = "KB"
   s.color = "#f6e052"
   s.slug = "katrina-bryant"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 8 ===============
@@ -599,8 +641,9 @@ User.seed(:id) do |s|
   s.initials = "AC"
   s.color = "#9bddbb"
   s.slug = "amanda-catarzi"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 2 ===============
@@ -613,8 +656,9 @@ User.seed(:id) do |s|
   s.initials = "BH"
   s.color = "#265601"
   s.slug = "brandon-hansen"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 4 ===============
@@ -627,8 +671,9 @@ User.seed(:id) do |s|
   s.initials = "DL"
   s.color = "#03894c"
   s.slug = "daniel-lau"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 9 ===============
@@ -641,8 +686,9 @@ User.seed(:id) do |s|
   s.initials = "SM"
   s.color = "#7fa685"
   s.slug = "sami-makhuli"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 7 ===============
@@ -655,8 +701,9 @@ User.seed(:id) do |s|
   s.initials = "RN"
   s.color = "#2f775b"
   s.slug = "ryan-nordyke"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 3 ===============
@@ -669,8 +716,9 @@ User.seed(:id) do |s|
   s.initials = "AL"
   s.color = "#e7b5f7"
   s.slug = "andrew-lyric"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 6 ===============
@@ -683,8 +731,9 @@ User.seed(:id) do |s|
   s.initials = "SWD"
   s.color = "#05a281"
   s.slug = "seth-w-davis"
+  s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 10 ===============
@@ -697,8 +746,9 @@ User.seed(:id) do |s|
   s.initials = "WD"
   s.color = "#65171e"
   s.slug = "web-department"
+  s.hidden = true
   s.created_at = "2013-03-20 03:15:24 UTC"
-  s.updated_at = "2013-03-20 03:51:56 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 44 ===============
@@ -711,8 +761,9 @@ User.seed(:id) do |s|
   s.initials = "HB"
   s.color = "#8125a0"
   s.slug = "holly-brunson"
+  s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
-  s.updated_at = "2013-03-20 03:21:59 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 45 ===============
@@ -725,8 +776,9 @@ User.seed(:id) do |s|
   s.initials = "IP"
   s.color = "#b5d89e"
   s.slug = "isaac-posey"
+  s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
-  s.updated_at = "2013-03-20 03:21:59 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 46 ===============
@@ -739,8 +791,9 @@ User.seed(:id) do |s|
   s.initials = "DH"
   s.color = "#5821e2"
   s.slug = "darrell-hill"
+  s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
-  s.updated_at = "2013-03-20 03:21:59 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 25 ===============
@@ -753,8 +806,9 @@ User.seed(:id) do |s|
   s.initials = "DP"
   s.color = "#b8995d"
   s.slug = "damon-posey"
+  s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
-  s.updated_at = "2013-03-20 03:21:59 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 47 ===============
@@ -767,8 +821,9 @@ User.seed(:id) do |s|
   s.initials = "JP"
   s.color = "#5fd8f7"
   s.slug = "jonathan-posey"
+  s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
-  s.updated_at = "2013-03-20 03:21:59 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 49 ===============
@@ -781,8 +836,9 @@ User.seed(:id) do |s|
   s.initials = "SN"
   s.color = "#cd036f"
   s.slug = "samuel-nudds"
+  s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
-  s.updated_at = "2013-03-20 03:21:59 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 
 # =============== User 48 ===============
@@ -795,7 +851,8 @@ User.seed(:id) do |s|
   s.initials = "JT"
   s.color = "#1e2680"
   s.slug = "janie-taylor"
+  s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
-  s.updated_at = "2013-03-20 03:41:42 UTC"
+  s.updated_at = "2013-03-22 15:46:05 UTC"
 end
 

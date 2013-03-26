@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
   
+  default_scope order: "name ASC"
+  scope :shown, where{hidden.eq false}
+  
   # Darken the chosen color by 15%
   def alt_color
     c = color.gsub("#", "")

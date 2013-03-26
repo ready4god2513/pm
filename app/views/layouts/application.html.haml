@@ -9,14 +9,32 @@
     .container-fluid
       .row-fluid
         .span12
-          %div#mast-head
-            %div.span9
-              %h3.pull-left.iteration_length
-                %span= Iteration.current_iteration_range
-              %h3.pull-left.today_date
-                Today is
-                %small= Date.today.strftime("%b %d")
-            %div.span3
+          .navbar.navbar-fixed-top
+            .navbar-inner
+              %a.brand{:href => "#"}= team.name
+              %ul.nav
+                %li
+                  %a= Iteration.current_iteration_range
+                %li
+                  %a
+                    Today is
+                    %small= Date.today.strftime("%b %d")
+                %li.dropdown
+                  %a#drop2.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button"}
+                    Team Members
+                    %b.caret
+                  %ul.dropdown-menu{"aria-labelledby" => "drop2", :role => "menu"}
+                    - team.users.shown.each do |user|
+                      %li= link_to user.name, "#"
+                    
+                %li.dropdown
+                  %a#drop2.dropdown-toggle{"data-toggle" => "dropdown", :href => "#", :role => "button"}
+                    Projects
+                    %b.caret
+                  %ul.dropdown-menu{"aria-labelledby" => "drop2", :role => "menu"}
+                    - team.projects.order("name").each do |project|
+                      %li= link_to project.name, "#"
+                    
               
       .row-fluid
         .span12
@@ -24,7 +42,16 @@
          
       .row-fluid
         .span12
-          %div#footer
+          %div.navbar.navbar-fixed-bottom
+            .navbar-inner
+              %a.brand{:href => "#"} Title
+              %ul.nav
+                %li= Iteration.current_iteration_range
+                %li
+                  Today is
+                  %small= Date.today.strftime("%b %d")
+                %li
+                  %a{:href => "#"} Link
             
       - team.users.uniq.each do |user|
         :sass

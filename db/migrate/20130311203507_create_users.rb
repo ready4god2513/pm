@@ -7,6 +7,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :initials
       t.string :color
       t.string :slug
+      t.boolean :hidden, default: false
       t.timestamps
     end
     
