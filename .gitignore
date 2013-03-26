@@ -25,3 +25,5 @@ rerun.txt
 pickle-email-*.html
 database.yml
 .DS_Store
+
+/.idea
