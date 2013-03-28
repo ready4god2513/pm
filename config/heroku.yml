@@ -10,7 +10,7 @@
 #     - <Heroku config:var name>: <Heroku config:var value>
 #
 alpha:
-  app: nomadpm-staging
+  app: teamstrongpm-staging
   stack: cedar
   config:
     RACK_ENV: "alpha"
@@ -24,7 +24,7 @@ alpha:
     - sendgrid:starter
     
 production:
-  app: nomadpm
+  app: teamstrongpm
   stack: cedar
   config:
     RACK_ENV: "production"
