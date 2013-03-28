@@ -7,7 +7,7 @@ gem "has_scope"
 gem "responders"
 
 gem "pg"
-gem "airbrake_user_attributes"
+# gem "airbrake_user_attributes"
 gem "heroku_san", "~> 4.0.7"
 gem "memcachier"
 gem "dalli"
