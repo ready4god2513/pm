@@ -7,10 +7,10 @@ class Team < ActiveRecord::Base
   has_one :setting
   has_and_belongs_to_many :users
   
-  validates_presence_of :name
+  validates_presence_of :name, :setting
   validates_uniqueness_of :name, :key
   
-  attr_accessible :name
+  attr_accessible :name, :setting_attributes
   accepts_nested_attributes_for :setting
   
   extend FriendlyId

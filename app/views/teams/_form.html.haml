@@ -5,8 +5,8 @@
   
   %div.well
     %h4 A bit about your planning
-    = simple_fields_for :setting do |setting_fields|
-      = setting_fields.input :iteration_length, as: :select, collection: Iteration::LENGTH_OPTIONS, selected: "1 Week"
+    = f.simple_fields_for :setting, @team.setting || @team.build_setting do |setting_fields|
+      = setting_fields.input :iteration_length, as: :select, collection: Iteration::LENGTH_OPTIONS, selected: "1 Weeks"
       = setting_fields.input :iteration_start_day, as: :select, collection: Date::DAYNAMES, selected: "Monday"
       = setting_fields.input :planning_mode, as: :select, collection: PlanningMode.all.map { |p| ["#{p.to_s.titleize} - #{p.description}", p.to_s]}, selected: "precise"
       = setting_fields.input :points_per_iteration
