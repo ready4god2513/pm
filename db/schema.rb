@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(:version => 20130401031244) do
     t.datetime "updated_at",                    :null => false
   end
 
+  add_index "iterations", ["current", "team_id"], :name => "index_iterations_on_current_and_team_id"
+  add_index "iterations", ["future", "team_id"], :name => "index_iterations_on_future_and_team_id"
+  add_index "iterations", ["past", "team_id"], :name => "index_iterations_on_past_and_team_id"
   add_index "iterations", ["team_id"], :name => "index_iterations_on_team_id"
 
   create_table "labels", :force => true do |t|
