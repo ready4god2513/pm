@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130401031244) do
+ActiveRecord::Schema.define(:version => 20130401042154) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "attachable_id"
@@ -110,6 +110,17 @@ ActiveRecord::Schema.define(:version => 20130401031244) do
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
 
+  create_table "settings", :force => true do |t|
+    t.integer  "team_id"
+    t.integer  "iteration_length"
+    t.string   "planning_mode"
+    t.integer  "points"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "settings", ["team_id"], :name => "index_settings_on_team_id"
+
   create_table "states", :force => true do |t|
     t.integer  "team_id"
     t.integer  "sort_order"
@@ -148,10 +159,11 @@ ActiveRecord::Schema.define(:version => 20130401031244) do
     t.integer  "team_id"
     t.string   "name"
     t.string   "slug"
-    t.boolean  "hidden",     :default => false
+    t.boolean  "hidden",      :default => false
     t.integer  "sort_order"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "estimatable", :default => true
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "story_types", ["team_id"], :name => "index_story_types_on_team_id"

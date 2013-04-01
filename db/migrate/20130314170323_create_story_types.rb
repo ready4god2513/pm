@@ -6,6 +6,7 @@ class CreateStoryTypes < ActiveRecord::Migration
       t.string :slug
       t.boolean :hidden, default: false
       t.integer :sort_order
+      t.boolean :estimatable, default: true
 
       t.timestamps
     end
