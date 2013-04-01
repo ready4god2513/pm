@@ -1,0 +1,16 @@
+= simple_form_for @team do |f|
+  %div.well
+    %h3 Sign up in Seconds
+    = f.input :name, label: "Team Name"
+  
+  %div.well
+    %h4 A bit about your planning
+    = simple_fields_for :setting do |setting_fields|
+      = setting_fields.input :iteration_length, as: :select, collection: Iteration::LENGTH_OPTIONS, selected: "1 Week"
+      = setting_fields.input :iteration_start_day, as: :select, collection: Date::DAYNAMES, selected: "Monday"
+      = setting_fields.input :planning_mode, as: :select, collection: PlanningMode.all.map { |p| ["#{p.to_s.titleize} - #{p.description}", p.to_s]}, selected: "precise"
+      = setting_fields.input :points_per_iteration
+    
+  
+  .form-actions
+    = f.submit "Sign Up Now", class: "btn btn-primary"

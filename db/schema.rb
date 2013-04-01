@@ -113,10 +113,11 @@ ActiveRecord::Schema.define(:version => 20130401042154) do
   create_table "settings", :force => true do |t|
     t.integer  "team_id"
     t.integer  "iteration_length"
+    t.string   "iteration_start_day"
     t.string   "planning_mode"
-    t.integer  "points"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "points_per_iteration"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
   end
 
   add_index "settings", ["team_id"], :name => "index_settings_on_team_id"

@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   include UrlHelper
   
   helper_method :team
+  layout "marketing"
   
   def team
     Team.find(request.subdomain) if request.subdomain.present?

@@ -6,6 +6,8 @@ class Project < ActiveRecord::Base
   has_many :users, through: :project_users
   has_many :labels, as: :labelable
   
+  attr_accessible :name
+  
   validates_presence_of :team, :name
   
   extend FriendlyId

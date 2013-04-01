@@ -14,5 +14,4 @@
 //= require jquery_ujs
 //= require angular
 //= require angular-resource
-//= require bootstrap-dropdown
-//= require story
+//= require bootstrap-all

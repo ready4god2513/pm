@@ -26,6 +26,7 @@ gem "seed-fu"
 gem "rails_autolink"
 gem "active_model_serializers"
 gem "carrierwave"
+gem "simple_form"
 
 group :assets do
   gem "sass-rails"

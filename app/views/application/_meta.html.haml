@@ -1,0 +1,11 @@
+%meta{:charset => "utf-8"}
+%title= content_for?(:title) ? "#{content_for(:title)}" : "Project Management"
+%meta{:content => content_for(:description), :name => "description"}
+%meta{:content => "#{"#{content_for(:title)} | " if content_for?(:title)} Destiny Finder", :property => "og:title"}
+%meta{:content => "website", :property => "og:type"}
+%meta{:content => "en_US", :property => "og:locale"}
+%meta{:content => request.url, :property => "og:url"}
+%meta{:content => "Destiny Finder", :property => "og:site_name"}
+%meta{:content => content_for(:description), :property => "og:description"}
+= csrf_meta_tags
+= stylesheet_link_tag "application", :media => "all"

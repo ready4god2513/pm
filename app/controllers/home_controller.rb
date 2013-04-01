@@ -1,8 +1,9 @@
 class HomeController < ApplicationController
   
+  layout "marketing"
+  
   def start
-    @iteration = team.iterations.current
-    @stories = @iteration.current
+    @team = Team.new
   end
   
 end

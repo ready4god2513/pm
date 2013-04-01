@@ -1,0 +1,23 @@
+!!!
+%html{:"ng-app" => "Nomad"}
+  %head
+    = render "meta"
+    = stylesheet_link_tag    "marketing", :media => "all"
+    = javascript_include_tag "marketing"
+    = csrf_meta_tags
+  %body
+    .container-fluid
+      .row-fluid
+        .span12
+          .navbar.navbar-fixed-top
+            .navbar-inner
+              %a.brand{:href => "#"} Project Managment
+              %ul.nav
+                %li= link_to "Sign Up", "#"
+                %li= link_to "Pricing", "#"
+                %li= link_to "About", "#"
+                    
+              
+      .row-fluid
+        .span12
+          = yield
