@@ -25,6 +25,7 @@ gem "friendly_id"
 gem "seed-fu"
 gem "rails_autolink"
 gem "active_model_serializers"
+gem "carrierwave"
 
 group :assets do
   gem "sass-rails"

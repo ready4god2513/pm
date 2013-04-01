@@ -5,4 +5,6 @@ class Attachment < ActiveRecord::Base
   
   validates_presence_of :attachable
   
+  mount_uploader :file, AttachmentUploader
+  
 end
