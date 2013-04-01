@@ -1,7 +1,6 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
-      t.references :team
       t.string :name
       t.string :email
       t.string :color
@@ -10,8 +9,14 @@ class CreateUsers < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :users, :team_id
     add_index :users, :slug, unique: true
     add_index :users, :email
+    
+    create_table :teams_users, :id => false do |t|
+      t.references :user, :null => false
+      t.references :team, :null => false
+    end
+
+    add_index :teams_users, [:user_id, :team_id], :unique => true
   end
 end

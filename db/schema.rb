@@ -191,8 +191,14 @@ ActiveRecord::Schema.define(:version => 20130401042154) do
 
   add_index "teams", ["slug"], :name => "index_teams_on_slug", :unique => true
 
+  create_table "teams_users", :id => false, :force => true do |t|
+    t.integer "user_id", :null => false
+    t.integer "team_id", :null => false
+  end
+
+  add_index "teams_users", ["user_id", "team_id"], :name => "index_teams_users_on_user_id_and_team_id", :unique => true
+
   create_table "users", :force => true do |t|
-    t.integer  "team_id"
     t.string   "name"
     t.string   "email"
     t.string   "color"
@@ -204,6 +210,5 @@ ActiveRecord::Schema.define(:version => 20130401042154) do
 
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
-  add_index "users", ["team_id"], :name => "index_users_on_team_id"
 
 end
