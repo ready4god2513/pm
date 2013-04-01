@@ -10,7 +10,7 @@ describe Team do
   
   context "associations" do
     it { should have_many(:projects) }
-    it { should have_many(:users).through(:projects) }
+    it { should have_many(:users) }
   end
   
 end

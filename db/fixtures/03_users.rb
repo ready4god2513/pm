@@ -14,6 +14,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:35:44 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 51 ===============
@@ -29,6 +30,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:27:43 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 22 ===============
@@ -44,6 +46,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 24 ===============
@@ -59,6 +62,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 11 ===============
@@ -74,6 +78,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:26 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 54 ===============
@@ -89,6 +94,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:41:42 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 50 ===============
@@ -104,6 +110,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:27:43 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 56 ===============
@@ -119,6 +126,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:41:42 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 43 ===============
@@ -134,6 +142,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:47 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 27 ===============
@@ -149,6 +158,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 28 ===============
@@ -164,6 +174,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 29 ===============
@@ -179,6 +190,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 30 ===============
@@ -194,6 +206,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 31 ===============
@@ -209,6 +222,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 32 ===============
@@ -224,6 +238,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 33 ===============
@@ -239,6 +254,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 23 ===============
@@ -254,6 +270,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 34 ===============
@@ -269,6 +286,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 20 ===============
@@ -284,6 +302,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 35 ===============
@@ -299,6 +318,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 36 ===============
@@ -314,6 +334,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 21 ===============
@@ -329,6 +350,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 37 ===============
@@ -344,6 +366,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 38 ===============
@@ -359,6 +382,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 39 ===============
@@ -374,6 +398,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 40 ===============
@@ -389,6 +414,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 41 ===============
@@ -404,6 +430,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 42 ===============
@@ -419,6 +446,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:20:41 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 12 ===============
@@ -434,6 +462,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:39 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 55 ===============
@@ -449,6 +478,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:41:42 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 57 ===============
@@ -464,6 +494,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:44:58 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 14 ===============
@@ -479,6 +510,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 15 ===============
@@ -494,6 +526,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 19 ===============
@@ -509,6 +542,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 17 ===============
@@ -524,6 +558,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 13 ===============
@@ -539,6 +574,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:40 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 16 ===============
@@ -554,6 +590,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 26 ===============
@@ -569,6 +606,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 1 ===============
@@ -584,6 +622,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 18 ===============
@@ -599,6 +638,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 53 ===============
@@ -614,6 +654,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:41:42 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 5 ===============
@@ -629,6 +670,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 8 ===============
@@ -644,6 +686,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 2 ===============
@@ -659,6 +702,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 4 ===============
@@ -674,6 +718,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 9 ===============
@@ -689,6 +734,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 7 ===============
@@ -704,6 +750,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 3 ===============
@@ -719,6 +766,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 6 ===============
@@ -734,6 +782,7 @@ User.seed(:id) do |s|
   s.hidden = false
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 10 ===============
@@ -749,6 +798,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:15:24 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 44 ===============
@@ -764,6 +814,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 45 ===============
@@ -779,6 +830,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 46 ===============
@@ -794,6 +846,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 25 ===============
@@ -809,6 +862,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:19:54 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 47 ===============
@@ -824,6 +878,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 49 ===============
@@ -839,6 +894,7 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
 
 # =============== User 48 ===============
@@ -854,5 +910,5 @@ User.seed(:id) do |s|
   s.hidden = true
   s.created_at = "2013-03-20 03:21:59 UTC"
   s.updated_at = "2013-03-22 15:46:05 UTC"
+  s.team_id = 1
 end
-

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   
+  belongs_to :team
   has_many :project_users, dependent: :destroy
   has_many :projects, through: :project_users
   has_many :attachments, foreign_key: :uploader_id
