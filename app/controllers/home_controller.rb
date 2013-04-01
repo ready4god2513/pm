@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
+  
   def start
-    @iterations = team.iterations.current
-    @stories = Story.in_iterations(@iterations)
+    @iteration = team.iterations.current
+    @stories = @iteration.current
   end
+  
 end

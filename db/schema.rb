@@ -39,8 +39,11 @@ ActiveRecord::Schema.define(:version => 20130401031244) do
     t.integer  "team_id"
     t.datetime "start"
     t.datetime "finish"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "current",    :default => false
+    t.boolean  "future",     :default => false
+    t.boolean  "past",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   add_index "iterations", ["team_id"], :name => "index_iterations_on_team_id"

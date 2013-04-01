@@ -4,6 +4,9 @@ class CreateIterations < ActiveRecord::Migration
       t.references :team
       t.datetime :start
       t.datetime :finish
+      t.boolean :current, default: false
+      t.boolean :future, default: false
+      t.boolean :past, default: false
 
       t.timestamps
     end

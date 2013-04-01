@@ -1,34 +1,24 @@
 class Iteration < ActiveRecord::Base
   
+  belongs_to :team
   has_many :stories
   
   validates_presence_of :start, :finish
   
-  scope :current, where{
-    (start.lte my{DateTime.now.utc.beginning_of_day}) &
-    (finish.gte my{DateTime.now.utc.beginning_of_day})
-  }
-  
-  scope :future, where{
-    (start.gte my{DateTime.now.utc.beginning_of_day})
-  }
-  
-  scope :past, where{
-    (finish.lte my{DateTime.now.utc.beginning_of_day})
-  }
+  scope :current, where{current.eq true}.limit(1)
+  scope :future, where{future.eq true}
+  scope :past, where{past.eq true}
   
   def date_range
     "#{start.to_formatted_s(:long)} - #{finish.to_formatted_s(:long)}"
   end
   
   def self.current_iteration_range
-    start = finish = Date.today
-    Iteration.current.each do |iteration|
-      start = iteration.start if iteration.start < start
-      finish = iteration.finish if iteration.finish > finish
-    end
-    
-    [start.strftime("%b %d"), finish.strftime("%b %d")].join(" - ")
+    current_iteration = Iteration.current
+    [
+      current_iteration.finish.strftime("%b %d"), 
+      current_iteration.finish.strftime("%b %d")
+    ].join(" - ")
   end
   
 end

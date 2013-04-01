@@ -1,8 +1,8 @@
 class Team < ActiveRecord::Base
   
   has_many :projects
-  has_many :users, through: :projects, uniq: true
-  has_many :iterations, through: :projects, uniq: true
+  has_many :users
+  has_many :iterations
   has_many :states
   has_many :story_types
   
