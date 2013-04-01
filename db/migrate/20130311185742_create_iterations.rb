@@ -12,5 +12,8 @@ class CreateIterations < ActiveRecord::Migration
     end
     
     add_index :iterations, :team_id
+    add_index :iterations, [:current, :team_id], uniq: true
+    add_index :iterations, [:future, :team_id]
+    add_index :iterations, [:past, :team_id]
   end
 end
