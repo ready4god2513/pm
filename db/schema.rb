@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130314180529) do
+ActiveRecord::Schema.define(:version => 20130401031244) do
 
   create_table "attachments", :force => true do |t|
     t.integer  "attachable_id"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.datetime "updated_at",     :null => false
   end
 
+  create_table "owners_stories", :id => false, :force => true do |t|
+    t.integer "user_id",  :null => false
+    t.integer "story_id", :null => false
+  end
+
+  add_index "owners_stories", ["user_id", "story_id"], :name => "index_owners_stories_on_user_id_and_story_id", :unique => true
+
   create_table "project_users", :force => true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
@@ -79,6 +86,13 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
   add_index "projects", ["team_id"], :name => "index_projects_on_team_id"
+
+  create_table "requestors_stories", :id => false, :force => true do |t|
+    t.integer "user_id",  :null => false
+    t.integer "story_id", :null => false
+  end
+
+  add_index "requestors_stories", ["user_id", "story_id"], :name => "index_requestors_stories_on_user_id_and_story_id", :unique => true
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
