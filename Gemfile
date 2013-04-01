@@ -27,6 +27,7 @@ gem "rails_autolink"
 gem "active_model_serializers"
 gem "carrierwave"
 gem "simple_form"
+gem "if_blank"
 
 group :assets do
   gem "sass-rails"

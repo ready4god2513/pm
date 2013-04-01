@@ -2,6 +2,7 @@ class TeamObserver < ActiveRecord::Observer
   
   def after_create(team)
     @team = team
+    initialize_iterations
   end
   
   def initialize_iterations
