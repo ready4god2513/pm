@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
     class_name: "Story", 
     foreign_key: :owner_id
   
-  validates_presence_of :name, :email, :pivotal_id
+  validates_presence_of :name, :email
   
   extend FriendlyId
   friendly_id :name, use: :slugged

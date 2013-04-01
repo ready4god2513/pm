@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :user do
-    pivotal_id 1
+    # pivotal_id 1
     name "MyString"
     email "MyString"
     initials "MyString"

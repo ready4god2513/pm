@@ -14,60 +14,36 @@
 ActiveRecord::Schema.define(:version => 20130314180529) do
 
   create_table "attachments", :force => true do |t|
-    t.integer  "story_id"
-    t.string   "url"
-    t.integer  "pivotal_id"
-    t.string   "filename"
-    t.integer  "user_id"
-    t.datetime "pivotal_uploaded_at"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.integer  "attachable_id"
+    t.string   "attachable_type"
+    t.string   "file"
+    t.integer  "uploader_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
-  add_index "attachments", ["pivotal_id"], :name => "index_attachments_on_pivotal_id"
-  add_index "attachments", ["story_id"], :name => "index_attachments_on_story_id"
+  add_index "attachments", ["attachable_id"], :name => "index_attachments_on_attachable_id"
 
   create_table "comments", :force => true do |t|
     t.integer  "story_id"
-    t.integer  "pivotal_id"
     t.text     "text"
     t.integer  "user_id"
-    t.datetime "pivotal_created_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "comments", ["pivotal_id"], :name => "index_comments_on_pivotal_id"
   add_index "comments", ["story_id"], :name => "index_comments_on_story_id"
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
-  create_table "integrations", :force => true do |t|
-    t.integer  "project_id"
-    t.integer  "pivotal_id"
-    t.string   "type"
-    t.string   "name"
-    t.string   "field_name"
-    t.string   "field_label"
-    t.boolean  "active"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
-  add_index "integrations", ["pivotal_id"], :name => "index_integrations_on_pivotal_id"
-  add_index "integrations", ["project_id"], :name => "index_integrations_on_project_id"
-
   create_table "iterations", :force => true do |t|
-    t.integer  "pivotal_id"
-    t.integer  "project_id"
-    t.integer  "number"
+    t.integer  "team_id"
     t.datetime "start"
     t.datetime "finish"
-    t.float    "team_strength"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "iterations", ["pivotal_id", "project_id"], :name => "index_iterations_on_pivotal_id_and_project_id"
+  add_index "iterations", ["team_id"], :name => "index_iterations_on_team_id"
 
   create_table "labels", :force => true do |t|
     t.string   "name"
@@ -91,33 +67,16 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
 
   create_table "projects", :force => true do |t|
     t.integer  "team_id"
-    t.integer  "pivotal_id"
     t.string   "name"
     t.string   "slug"
-    t.datetime "pivotal_created_at"
-    t.integer  "version"
-    t.integer  "iteration_length"
-    t.string   "week_start_day"
     t.string   "point_scale"
     t.string   "account"
-    t.datetime "first_iteration_start_time"
-    t.integer  "current_iteration_number"
     t.boolean  "enable_tasks"
-    t.string   "velocity_scheme"
-    t.integer  "current_velocity"
-    t.integer  "initial_velocity"
-    t.integer  "number_of_done_iterations_to_show"
-    t.boolean  "allow_attachments"
     t.boolean  "is_public"
-    t.boolean  "use_https"
-    t.boolean  "bugs_and_chores_are_estimatable"
-    t.boolean  "commit_mode"
-    t.datetime "pivotal_last_activity_at"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
-  add_index "projects", ["pivotal_id"], :name => "index_projects_on_pivotal_id"
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
   add_index "projects", ["team_id"], :name => "index_projects_on_team_id"
 
@@ -148,23 +107,17 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
     t.integer  "iteration_id"
     t.integer  "story_type_id"
     t.integer  "state_id"
-    t.integer  "pivotal_id"
-    t.string   "url"
     t.integer  "estimate"
     t.text     "description"
     t.string   "name"
     t.integer  "requestor_id"
     t.integer  "owner_id"
-    t.datetime "pivotal_created_at"
-    t.datetime "pivotal_accepted_at"
-    t.datetime "pivotal_updated_at"
     t.string   "slug"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   add_index "stories", ["owner_id"], :name => "index_stories_on_owner_id"
-  add_index "stories", ["pivotal_id"], :name => "index_stories_on_pivotal_id"
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
   add_index "stories", ["requestor_id"], :name => "index_stories_on_requestor_id"
   add_index "stories", ["slug"], :name => "index_stories_on_slug", :unique => true
@@ -185,13 +138,13 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
 
   create_table "tasks", :force => true do |t|
     t.integer  "story_id"
-    t.integer  "pivotal_id"
+    t.integer  "owner_id"
+    t.integer  "requestor_id"
     t.text     "description"
     t.integer  "position"
     t.boolean  "complete"
-    t.datetime "pivotal_created_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   add_index "tasks", ["story_id"], :name => "index_tasks_on_story_id"
@@ -207,10 +160,8 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
   add_index "teams", ["slug"], :name => "index_teams_on_slug", :unique => true
 
   create_table "users", :force => true do |t|
-    t.integer  "pivotal_id"
     t.string   "name"
     t.string   "email"
-    t.string   "initials"
     t.string   "color"
     t.string   "slug"
     t.boolean  "hidden",     :default => false
@@ -219,7 +170,6 @@ ActiveRecord::Schema.define(:version => 20130314180529) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["pivotal_id"], :name => "index_users_on_pivotal_id"
   add_index "users", ["slug"], :name => "index_users_on_slug", :unique => true
 
 end

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :project do
-    pivotal_id 1
+    # pivotal_id 1
     name "MyString"
     iteration_length 1
     week_start "MyString"

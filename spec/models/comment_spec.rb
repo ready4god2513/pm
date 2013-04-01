@@ -4,7 +4,6 @@ describe Comment do
   
   context "validations" do
     it { should validate_presence_of(:story) }
-    it { should validate_presence_of(:pivotal_id) }
   end
   
   

@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :task do
     story nil
-    pivotal_id 1
+    # pivotal_id 1
     description "MyText"
     position 1
     complete false

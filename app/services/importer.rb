@@ -89,7 +89,7 @@ class Importer
   def import_stories(pivotal, iteration)
     pivotal.stories.each do |story|
       s = Story.find_or_initialize_by_pivotal_id(story.id)
-      s.pivotal_id = story.id
+      # s.pivotal_id = story.id
       s.project = iteration.project
       s.iteration = iteration
       s.story_type = @team.story_types.find_or_create_by_name(story.story_type)
@@ -98,9 +98,9 @@ class Importer
       s.state = @team.states.find_or_create_by_name(story.current_state)
       s.description = story.description
       s.name = story.name
-      s.pivotal_created_at = story.created_at
-      s.pivotal_updated_at = story.updated_at
-      s.pivotal_accepted_at = story.accepted_at
+      # s.pivotal_created_at = story.created_at
+      # s.pivotal_updated_at = story.updated_at
+      # s.pivotal_accepted_at = story.accepted_at
       s.requestor = User.find_by_name(story.requested_by.name)
       s.owner = User.find_by_name(story.owned_by.name)
       begin

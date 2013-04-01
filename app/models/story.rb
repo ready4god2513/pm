@@ -12,7 +12,7 @@ class Story < ActiveRecord::Base
   has_many :comments
   has_many :labels, as: :labelable
   
-  validates_presence_of :project, :pivotal_id, :name, :state
+  validates_presence_of :project, :name, :state
   
   extend FriendlyId
   friendly_id :name, use: :slugged
