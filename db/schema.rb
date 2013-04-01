@@ -39,16 +39,12 @@ ActiveRecord::Schema.define(:version => 20130401042154) do
     t.integer  "team_id"
     t.datetime "start"
     t.datetime "finish"
-    t.boolean  "current",    :default => false
-    t.boolean  "future",     :default => false
-    t.boolean  "past",       :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.string   "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
-  add_index "iterations", ["current", "team_id"], :name => "index_iterations_on_current_and_team_id"
-  add_index "iterations", ["future", "team_id"], :name => "index_iterations_on_future_and_team_id"
-  add_index "iterations", ["past", "team_id"], :name => "index_iterations_on_past_and_team_id"
+  add_index "iterations", ["status", "team_id"], :name => "index_iterations_on_status_and_team_id"
   add_index "iterations", ["team_id"], :name => "index_iterations_on_team_id"
 
   create_table "labels", :force => true do |t|

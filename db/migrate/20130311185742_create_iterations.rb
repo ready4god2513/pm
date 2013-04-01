@@ -4,16 +4,12 @@ class CreateIterations < ActiveRecord::Migration
       t.references :team
       t.datetime :start
       t.datetime :finish
-      t.boolean :current, default: false
-      t.boolean :future, default: false
-      t.boolean :past, default: false
+      t.string :status
 
       t.timestamps
     end
     
     add_index :iterations, :team_id
-    add_index :iterations, [:current, :team_id], uniq: true
-    add_index :iterations, [:future, :team_id]
-    add_index :iterations, [:past, :team_id]
+    add_index :iterations, [:status, :team_id]
   end
 end
