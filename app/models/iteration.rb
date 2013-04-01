@@ -1,6 +1,6 @@
 class Iteration < ActiveRecord::Base
   
-  LENGTH_OPTIONS = (1..12).map { |n| "#{n} Weeks"}
+  LENGTH_OPTIONS = (1..12).map { |n| ["#{n} Weeks", "#{n} Weeks"] }
   
   belongs_to :team
   has_many :stories
