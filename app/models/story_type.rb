@@ -1,5 +1,7 @@
 class StoryType < ActiveRecord::Base
   
+  audited
+  
   belongs_to :team
   has_many :stories
   

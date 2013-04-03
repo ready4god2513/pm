@@ -1,5 +1,7 @@
 class Iteration < ActiveRecord::Base
   
+  audited
+  
   LENGTH_OPTIONS = (1..12).map { |n| ["#{n} Weeks", "#{n} Weeks"] }
   DATE_FORMAT = "%A, %B %d, %Y"
   

@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
   
+  audited
+  
   belongs_to :team
   has_many :stories
   has_many :project_users

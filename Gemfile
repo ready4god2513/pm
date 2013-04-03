@@ -28,6 +28,7 @@ gem "active_model_serializers"
 gem "carrierwave"
 gem "simple_form"
 gem "if_blank"
+gem "audited-activerecord", "~> 3.0"
 
 group :assets do
   gem "sass-rails"

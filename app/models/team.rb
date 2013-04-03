@@ -1,5 +1,7 @@
 class Team < ActiveRecord::Base
   
+  audited
+  
   has_many :projects
   has_many :iterations
   has_many :states

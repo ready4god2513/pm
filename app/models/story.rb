@@ -1,16 +1,18 @@
 class Story < ActiveRecord::Base
   
+  audited
+  
   belongs_to :project
   belongs_to :iteration
   belongs_to :state
   belongs_to :story_type
-  has_and_belongs_to_many :requestors, 
+  has_and_belongs_to_many :managers, 
     class_name: "User",
-    join_table: "requestors_stories"
+    join_table: "managers_stories"
     
-  has_and_belongs_to_many :owners,
+  has_and_belongs_to_many :developers,
     class_name: "User",
-    join_table: "owners_stories"
+    join_table: "developers_stories"
   
   has_many :tasks
   has_many :attachments, as: :attachable

@@ -23,6 +23,10 @@ class IterationManager
       Delorean.back_to_the_present
     end
     
+    def resize_future_iterations(team)
+      
+    end
+    
     def update_iteration_statuses(team)
       
     end

@@ -1,18 +1,20 @@
 class User < ActiveRecord::Base
   
+  audited
+  
   has_many :project_users, dependent: :destroy
   has_many :projects, through: :project_users
   has_many :attachments, foreign_key: :uploader_id
   has_many :comments
   has_and_belongs_to_many :teams
   
-  has_many :requested_stories, 
+  has_many :managed_stories, 
     class_name: "Story", 
-    foreign_key: :requestor_id
+    foreign_key: :user_id
     
-  has_many :owned_stories, 
+  has_many :developer_stories, 
     class_name: "Story", 
-    foreign_key: :owner_id
+    foreign_key: :user_id
   
   validates_presence_of :name, :email
   
