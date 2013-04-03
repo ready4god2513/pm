@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :team do
-    name "MyString"
-    key "MyString"
+    name "My Team"
+    key "My Key"
+    setting { FactoryGirl.create(:setting) }
   end
 end

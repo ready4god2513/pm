@@ -1,6 +1,7 @@
 class Iteration < ActiveRecord::Base
   
   LENGTH_OPTIONS = (1..12).map { |n| ["#{n} Weeks", "#{n} Weeks"] }
+  DATE_FORMAT = "%A, %B %d, %Y"
   
   belongs_to :team
   has_many :stories
@@ -16,7 +17,7 @@ class Iteration < ActiveRecord::Base
   classy_enum_attr :status, enum: "IterationState"
   
   def date_range
-    "#{start.to_formatted_s(:long)} - #{finish.to_formatted_s(:long)}"
+    "#{start.strftime(DATE_FORMAT)} - #{finish.strftime(DATE_FORMAT)}"
   end
   
   

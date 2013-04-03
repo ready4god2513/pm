@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :setting do
-    team nil
     iteration_length 1
-    planning_mode "MyString"
-    points 1
+    planning_mode "intelligent"
+    iteration_start_day "Monday"
+    points_per_iteration 1
   end
 end
