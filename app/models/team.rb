@@ -3,6 +3,7 @@ class Team < ActiveRecord::Base
   audited
   
   has_many :projects
+  has_many :stories, through: :projects
   has_many :iterations
   has_many :states
   has_many :story_types
