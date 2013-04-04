@@ -12,4 +12,14 @@ describe Setting do
     team.iterations.last.length.should == ((setting.iteration_length * 7) - 1)
 	end
 
+  it "should update iteration start date" do
+    previous_day = setting.iteration_start_day
+    new_day = "Tuesday"
+    setting.iteration_start_day = new_day
+    setting.save!
+
+    team.iterations.future.select { |i| i.start.strftime("%A") == new_day }.count.should == team.iterations.future.count
+    team.iterations.future.select { |i| i.start.strftime("%A") == previous_day }.count.should == 0
+  end
+
 end
