@@ -21,6 +21,10 @@ class Iteration < ActiveRecord::Base
   def date_range
     "#{start.strftime(DATE_FORMAT)} - #{finish.strftime(DATE_FORMAT)}"
   end
+
+  def length
+    (finish.to_date - start.to_date).to_i
+  end
   
   
 end
