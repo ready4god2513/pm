@@ -106,12 +106,8 @@ ActiveRecord::Schema.define(:version => 20130403224507) do
     t.integer  "team_id"
     t.string   "name"
     t.string   "slug"
-    t.string   "point_scale"
-    t.string   "account"
-    t.boolean  "enable_tasks"
-    t.boolean  "is_public"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true

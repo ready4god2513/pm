@@ -1,0 +1,5 @@
+- title(resource_class.to_s.titleize)
+
+%ul
+  - collection.each do |type|
+    %li= type.name

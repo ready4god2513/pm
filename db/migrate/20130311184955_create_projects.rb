@@ -5,10 +5,6 @@ class CreateProjects < ActiveRecord::Migration
       t.references :team
       t.string :name
       t.string :slug
-      t.string :point_scale
-      t.string :account
-      t.boolean :enable_tasks
-      t.boolean :is_public
 
       t.timestamps
     end

@@ -24,5 +24,25 @@ describe Team do
     end
     
   end
+
+  context "initial story types" do
+
+    let!(:team) { FactoryGirl.create(:team) }
+
+    it "should not be empty" do
+      team.story_types.should_not be_empty
+    end
+
+  end
+
+  context "initial states" do
+
+    let!(:team) { FactoryGirl.create(:team) }
+
+    it "should not be empty" do
+      team.states.should_not be_empty
+    end
+
+  end
   
 end
