@@ -12,6 +12,7 @@ class CreateStories < ActiveRecord::Migration
       t.references :requestor
       t.references :owner
       t.string :slug
+      t.integer :priority
       t.timestamps
     end
     

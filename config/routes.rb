@@ -2,6 +2,8 @@ Nomadpm::Application.routes.draw do
   
   
 
+  devise_for :users
+
   constraints(Subdomain) do
     
     resources :stories do
