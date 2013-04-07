@@ -8,7 +8,7 @@ class State < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  attr_accessible :sort_order, :name
+  attr_accessible :sort_order, :name, :hidden
   
   default_scope order: "sort_order ASC"
   scope :shown, where{hidden.eq false}

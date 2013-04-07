@@ -14,4 +14,10 @@ describe ProjectUser do
     it { should belong_to(:user) }
   end
   
+  context "attribute accessible" do
+    it { should_not allow_mass_assignment_of :project_id }
+    it { should_not allow_mass_assignment_of :user_id }
+    it { should allow_mass_assignment_of :role }
+  end
+
 end

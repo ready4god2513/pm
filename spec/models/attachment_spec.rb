@@ -11,4 +11,11 @@ describe Attachment do
     it { should belong_to(:attachable) }
   end
   
+  context "attribute accessible" do
+    it { should_not allow_mass_assignment_of :attachable_id }
+    it { should_not allow_mass_assignment_of :uploader_id }
+    it { should_not allow_mass_assignment_of :attachable_type }
+    it { should allow_mass_assignment_of :file }
+  end
+  
 end

@@ -11,6 +11,12 @@ describe Team do
     it { should have_and_belong_to_many(:users) }
   end
   
+  context "attribute accessible" do
+    it { should_not allow_mass_assignment_of :slug }
+    it { should_not allow_mass_assignment_of :key }
+    it { should allow_mass_assignment_of :name }
+  end
+  
   context "initial iterations" do
     
     let!(:team) { FactoryGirl.create(:team) }

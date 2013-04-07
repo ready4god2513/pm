@@ -7,4 +7,6 @@ class Attachment < ActiveRecord::Base
   
   mount_uploader :file, AttachmentUploader
   
+  attr_accessible :file
+   
 end

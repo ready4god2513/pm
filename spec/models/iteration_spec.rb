@@ -12,4 +12,11 @@ describe Iteration do
     it { should have_many(:stories) }
   end
   
+  context "mass assignment" do
+    it { should_not allow_mass_assignment_of :team_id }
+    it { should allow_mass_assignment_of :start }
+    it { should allow_mass_assignment_of :finish }
+    it { should allow_mass_assignment_of :status }
+  end
+  
 end

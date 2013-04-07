@@ -18,6 +18,8 @@ class Iteration < ActiveRecord::Base
   
   classy_enum_attr :status, enum: "IterationState"
   
+  attr_accessible :start, :finish, :status
+  
   def date_range
     "#{start.strftime(DATE_FORMAT)} - #{finish.strftime(DATE_FORMAT)}"
   end

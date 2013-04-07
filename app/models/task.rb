@@ -8,4 +8,6 @@ class Task < ActiveRecord::Base
   
   default_scope order: "position ASC"
   
+  attr_accessible :description, :position, :complete
+  
 end
