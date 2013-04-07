@@ -14,5 +14,12 @@ describe Project do
     it { should have_many(:project_users) }
     it { should have_many(:users).through(:project_users) }
   end
+
+  context "attribute accessible" do
+    it { should allow_mass_assignment_of :name }
+    it { should_not allow_mass_assignment_of :slug }
+    it { should_not allow_mass_assignment_of :team }
+    it { should_not allow_mass_assignment_of :team_id }
+  end
   
 end

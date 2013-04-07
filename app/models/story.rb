@@ -20,6 +20,8 @@ class Story < ActiveRecord::Base
   has_many :labels, as: :labelable
   
   validates_presence_of :project, :name, :state
+
+  attr_accessible :name, :estimate, :description, :priority
   
   extend FriendlyId
   friendly_id :name, use: :slugged

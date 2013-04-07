@@ -8,7 +8,9 @@ class StoryType < ActiveRecord::Base
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  attr_accessible :sort_order, :name
+  validates_presence_of :name
+
+  attr_accessible :sort_order, :name, :estimatable, :hidden
   
   default_scope order: "sort_order ASC"
   scope :shown, where{hidden.eq false}

@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -155,17 +154,13 @@ ActiveRecord::Schema.define(:version => 20130403224507) do
     t.integer  "estimate"
     t.text     "description"
     t.string   "name"
-    t.integer  "requestor_id"
-    t.integer  "owner_id"
     t.string   "slug"
     t.integer  "priority"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
 
-  add_index "stories", ["owner_id"], :name => "index_stories_on_owner_id"
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"
-  add_index "stories", ["requestor_id"], :name => "index_stories_on_requestor_id"
   add_index "stories", ["slug"], :name => "index_stories_on_slug", :unique => true
   add_index "stories", ["state_id"], :name => "index_stories_on_state_id"
   add_index "stories", ["story_type_id"], :name => "index_stories_on_story_type_id"
