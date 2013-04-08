@@ -2,9 +2,9 @@
 
 FactoryGirl.define do
   factory :user do
-    # pivotal_id 1
-    name "MyString"
-    email "MyString"
-    initials "MyString"
+    name "My User"
+    sequence(:email) { |n| "user#{n}@weareusers.com" }
+    password "mypassword"
+    color "#222"
   end
 end

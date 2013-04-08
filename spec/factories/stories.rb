@@ -6,10 +6,10 @@ FactoryGirl.define do
     story_type { FactoryGirl.create(:story_type) }
     state { FactoryGirl.create(:state) }
     estimate 1
-    description "MyText"
-    name "MyString"
-    requestor { FactoryGirl.create(:user) }
-    owner { FactoryGirl.create(:owner) }
-    labels "MyString"
+    description "Story Description"
+    name "My New Story"
+    managers { [FactoryGirl.create(:user)] }
+    developers { [FactoryGirl.create(:user)] }
+    labels { [FactoryGirl.create(:label)] }
   end
 end

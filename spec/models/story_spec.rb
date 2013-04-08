@@ -29,5 +29,23 @@ describe Story do
     it { should_not allow_mass_assignment_of :story_type_id }
     it { should_not allow_mass_assignment_of :state_id }
   end
+
+  context "notifications" do
+
+    let(:story) { FactoryGirl.create(:story) }
+
+    context "created" do
+
+      before(:each) { story }
+      
+      it "should notify developers" do
+        story.developers.each do |developer|
+          ActionMailer::Base.deliveries.detect { |d| d.to.include?(developer.email) }.should be_present
+        end
+      end
+
+    end
+
+  end
   
 end

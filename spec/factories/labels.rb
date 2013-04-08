@@ -2,8 +2,7 @@
 
 FactoryGirl.define do
   factory :label do
-    name "MyString"
-    slug "MyString"
-    labelable ""
+    name "My Label"
+    slug "my-label"
   end
 end
