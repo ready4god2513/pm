@@ -31,6 +31,7 @@ gem "if_blank"
 gem "audited-activerecord", "~> 3.0"
 gem "devise"
 gem "cancan"
+gem "nested_set"
 
 group :assets do
   gem "sass-rails"

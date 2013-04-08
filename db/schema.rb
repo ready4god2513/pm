@@ -157,6 +157,9 @@ ActiveRecord::Schema.define(:version => 20130403224507) do
     t.string   "name"
     t.string   "slug"
     t.integer  "priority"
+    t.integer  "parent_id"
+    t.integer  "lft"
+    t.integer  "rgt"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

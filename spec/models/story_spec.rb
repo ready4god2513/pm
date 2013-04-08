@@ -16,6 +16,7 @@ describe Story do
     it { should have_many(:tasks) }
     it { should have_many(:attachments) }
     it { should have_many(:comments) }
+    it { should respond_to(:has_descendants?) } # Implement nested set.  More tests needed, however
   end
 
   context "attribute accessible" do

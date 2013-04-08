@@ -11,6 +11,9 @@ class CreateStories < ActiveRecord::Migration
       t.string :name
       t.string :slug
       t.integer :priority
+      t.integer :parent_id
+      t.integer :lft
+      t.integer :rgt
       t.timestamps
     end
     
