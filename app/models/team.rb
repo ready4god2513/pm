@@ -24,5 +24,9 @@ class Team < ActiveRecord::Base
   def generate_api_key
     self.key ||= SecureRandom.uuid
   end
+
+  def average_points_completed
+    iterations.inject(0.to_f) { |sum, iteration| sum + iteration.points_completed }
+  end
   
 end

@@ -160,8 +160,9 @@ ActiveRecord::Schema.define(:version => 20130403224507) do
     t.integer  "parent_id"
     t.integer  "lft"
     t.integer  "rgt"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.boolean  "completed",     :default => false
+    t.datetime "created_at",                       :null => false
+    t.datetime "updated_at",                       :null => false
   end
 
   add_index "stories", ["project_id"], :name => "index_stories_on_project_id"

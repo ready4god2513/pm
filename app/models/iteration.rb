@@ -27,6 +27,10 @@ class Iteration < ActiveRecord::Base
   def length
     (finish.to_date - start.to_date).to_i
   end
+
+  def points_completed
+    stories.completed(self).inject(0) { |sum, story| sum + story.estimate }
+  end
   
   
 end

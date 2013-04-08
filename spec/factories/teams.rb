@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :team do
     name "My Team"
-    key "My Key"
+    sequence(:key) { |n| "#{SecureRandom.hex}-#{n}"}
     setting { FactoryGirl.create(:setting) }
   end
 end

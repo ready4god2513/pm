@@ -28,6 +28,10 @@ class Story < ActiveRecord::Base
   friendly_id :name, use: :slugged
   
   default_scope order: "priority desc"
+
+  scope :completed, lambda {|iteration|
+    where{completed.eq true}
+  }
   
   def shown?
     story_type.shown? && state.shown?

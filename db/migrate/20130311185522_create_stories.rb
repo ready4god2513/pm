@@ -14,6 +14,7 @@ class CreateStories < ActiveRecord::Migration
       t.integer :parent_id
       t.integer :lft
       t.integer :rgt
+      t.boolean :completed, default: false
       t.timestamps
     end
     

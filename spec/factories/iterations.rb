@@ -3,8 +3,8 @@
 FactoryGirl.define do
   factory :iteration do
     # pivotal_id 1
-    start "2013-03-11 11:57:42"
-    finish "2013-03-11 11:57:42"
-    team_strength 1.5
+    start { 1.week.ago }
+    finish { 1.week.from_now }
+    status "current"
   end
 end

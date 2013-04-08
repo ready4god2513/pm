@@ -11,5 +11,7 @@ FactoryGirl.define do
     managers { [FactoryGirl.create(:user)] }
     developers { [FactoryGirl.create(:user)] }
     labels { [FactoryGirl.create(:label)] }
+    iteration { FactoryGirl.create(:iteration) }
+    completed false
   end
 end
