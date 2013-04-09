@@ -14,7 +14,7 @@ describe Team do
       click_button "Sign Up Now"
 
       # Check that we have redirected to the subdomain of the new team
-      page.current_url.should =~ /#{Team.first.slug}/
+      page.current_url.should =~ /#{Team.first.slug}\./
     end
 
   end

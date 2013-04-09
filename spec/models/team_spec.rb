@@ -59,15 +59,15 @@ describe Team do
       end
 
       it "is 0 when nothing completed" do
-        team.average_points_completed.should == 0
+        team.average_points_completed.should == 0.to_f
       end
 
       it "calculates" do
-
+        
       end
 
       it "shows progress" do
-
+        
       end
 
     end

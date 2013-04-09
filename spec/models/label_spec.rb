@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Label do
-  pending "add some examples to (or delete) #{__FILE__}"
   
   context "attribute accessible" do
     it { should_not allow_mass_assignment_of :labelable_id }
