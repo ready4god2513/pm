@@ -9,6 +9,7 @@ describe Attachment do
   
   context "associations" do
     it { should belong_to(:attachable) }
+    it { should belong_to(:uploader)}
   end
   
   context "attribute accessible" do
