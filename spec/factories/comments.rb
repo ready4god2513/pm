@@ -2,9 +2,8 @@
 
 FactoryGirl.define do
   factory :comment do
-    story nil
-    text "MyText"
-    author "MyString"
-    commentd_at "2013-03-12 09:46:09"
+    story { FactoryGirl.create(:story) }
+    user { FactoryGirl.create(:user) }
+    sequence(:text) { |n| "My Comment #{n}"}
   end
 end

@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :state do
-    name "MyString"
-    slug "MyString"
+    team { FactoryGirl.create(:team) }
+    sequence(:name) { |n| "My State #{n}"}
+    sequence(:sort_order) { |n| n }
   end
 end

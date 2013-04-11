@@ -1,13 +1,11 @@
 class CreateProjectUser < ActiveRecord::Migration
   def change
-    create_table :project_users do |t|
+    create_table :project_users, id: false do |t|
       t.references :project
       t.references :user
-      t.string :role
 
       t.timestamps
     end
-    add_index :project_users, :project_id
-    add_index :project_users, :user_id
+    add_index :project_users, [:project_id, :user_id]
   end
 end

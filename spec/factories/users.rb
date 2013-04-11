@@ -2,7 +2,8 @@
 
 FactoryGirl.define do
   factory :user do
-    name "My User"
+    sequence(:name) { |n| "My User #{n}" }
+    
     sequence(:email) { |n| "user#{n}@weareusers.com" }
     password "mypassword"
     color "#222"

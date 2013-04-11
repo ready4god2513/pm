@@ -9,8 +9,8 @@ describe User do
   
   
   context "associations" do
-    it { should have_many(:project_users) }
-    it { should have_many(:projects).through(:project_users) }
+    it { should have_and_belong_to_many(:teams) }
+    it { should have_many(:projects).through(:teams) }
   end
   
   context "attribute accessible" do

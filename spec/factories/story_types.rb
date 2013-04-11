@@ -2,7 +2,9 @@
 
 FactoryGirl.define do
   factory :story_type do
-    name "MyString"
-    slug "MyString"
+    team { FactoryGirl.create(:team) }
+    sequence(:name) { |n| "My Story Type #{n}"}
+    sequence(:sort_order) { |n| n }
+    estimatable true
   end
 end

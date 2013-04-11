@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :attachment do
-    story nil
-    url "MyString"
+    story { FactoryGirl.create(:story) }
+    url "http://google.com"
   end
 end

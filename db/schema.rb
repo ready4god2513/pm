@@ -91,16 +91,14 @@ ActiveRecord::Schema.define(:version => 20130403224507) do
 
   add_index "managers_stories", ["user_id", "story_id"], :name => "index_managers_stories_on_user_id_and_story_id", :unique => true
 
-  create_table "project_users", :force => true do |t|
+  create_table "project_users", :id => false, :force => true do |t|
     t.integer  "project_id"
     t.integer  "user_id"
-    t.string   "role"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "project_users", ["project_id"], :name => "index_project_users_on_project_id"
-  add_index "project_users", ["user_id"], :name => "index_project_users_on_user_id"
+  add_index "project_users", ["project_id", "user_id"], :name => "index_project_users_on_project_id_and_user_id"
 
   create_table "projects", :force => true do |t|
     t.integer  "team_id"

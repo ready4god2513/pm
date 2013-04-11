@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :project do
-    name "My Project"
+    sequence(:name) {|n| "My Project #{n}" }
     team { FactoryGirl.create(:team) }
   end
 end

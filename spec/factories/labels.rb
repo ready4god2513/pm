@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :label do
-    name "My Label"
-    slug "my-label"
+    sequence(:name) { |n| "My Label #{n}"}
   end
 end

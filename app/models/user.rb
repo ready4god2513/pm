@@ -11,8 +11,7 @@ class User < ActiveRecord::Base
   
   audited
   
-  has_many :project_users, dependent: :destroy
-  has_many :projects, through: :project_users
+  has_many :projects, through: :teams
   has_many :attachments, foreign_key: :uploader_id
   has_many :comments
   has_and_belongs_to_many :teams

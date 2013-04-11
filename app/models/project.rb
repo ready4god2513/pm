@@ -4,8 +4,7 @@ class Project < ActiveRecord::Base
   
   belongs_to :team
   has_many :stories
-  has_many :project_users
-  has_many :users, through: :project_users
+  has_many :users, through: :team
   has_many :labels, as: :labelable
   
   attr_accessible :name
