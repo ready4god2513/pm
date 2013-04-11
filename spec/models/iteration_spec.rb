@@ -29,6 +29,10 @@ describe Iteration do
 
     context "points" do
 
+      it "should report expected completion as a percentage of estimated points for the iteration (max of 100%)" do
+        pending "RYAN- Make this happen."
+      end
+
       it "completed type" do
         iteration.points_completed.should be_a(Fixnum)
       end
