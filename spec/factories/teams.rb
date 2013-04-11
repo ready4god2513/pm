@@ -5,5 +5,6 @@ FactoryGirl.define do
     sequence(:name) { |n| "My Team #{n}" }
     sequence(:key) { |n| "#{SecureRandom.hex}-#{n}"}
     setting { FactoryGirl.create(:setting) }
+    users { [FactoryGirl.create(:user), FactoryGirl.create(:user)]}
   end
 end
