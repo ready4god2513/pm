@@ -81,13 +81,17 @@ describe Iteration do
             sum += story.estimate if story.started_or_completed?
           end
           
-          puts iteration.stories.map { |s| s.state_id }.join(", ")
-          puts iteration.stories.started_or_completed(team).to_sql
           sum.should == iteration.points_started_or_completed
         end
         
         it "calculate current day as a num" do
-          pending
+          iteration.current_day_num.should be_a(Fixnum)
+        end
+
+        it "calculate current day correctly" do
+          # This comes from moving forward 2 days with delorean.  Probably
+          # should find a better way to do this.
+          iteration.current_day_num.should == 2
         end
 
         it "should be a call out to cache once the cache has been warmed" do
