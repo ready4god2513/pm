@@ -77,7 +77,9 @@ describe Story do
 
   context "notifications" do
 
-    let(:story) { FactoryGirl.create(:story) }
+    let(:team) { FactoryGirl.create(:team) }
+    let(:iteration) { FactoryGirl.create(:iteration, team: team) }
+    let(:story) { FactoryGirl.create(:story, iteration: iteration) }
 
     context "created" do
 

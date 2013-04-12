@@ -1,5 +1,12 @@
 class StoryObserver < ActiveRecord::Observer
 
+  def after_save(story)
+    @story = story
+
+    # Clear the cache related to iterations for the team
+    @story.iteration.team.iterations.each { |i| i.touch }
+  end
+
   def after_create(story)
     @story = story
     notify_developers
