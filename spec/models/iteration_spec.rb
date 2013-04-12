@@ -43,6 +43,15 @@ describe Iteration do
           iteration.expected_completion_percentage.should be_a(Float)
         end
 
+        it "is not cached" do
+          Rails.cache.fetch(iteration: iteration, expected_completion_percentage: true).should be_empty
+        end
+
+        it "is cached" do
+          iteration.expected_completion_percentage
+          Rails.cache.fetch(iteration: iteration, expected_completion_percentage: true).should >= 0.00
+        end
+
         it "greater than or equal to 0.00" do
           Iteration.any_instance.stub(:points_started_or_completed).and_return(-10)
           Iteration.any_instance.stub(:current_day_num).and_return(13)
@@ -128,6 +137,15 @@ describe Iteration do
 
       it "completed count" do
         iteration.points_completed.should == story.estimate
+      end
+
+      it "does not cache completed" do
+        Rails.cache.fetch(iteration: iteration, points_completed: true).should be_empty
+      end
+
+      it "caches completed" do
+        iteration.points_completed
+        Rails.cache.fetch(iteration: iteration, points_completed: true).should eq(iteration.points_completed)
       end
 
     end

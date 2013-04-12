@@ -21,9 +21,11 @@ class Iteration < ActiveRecord::Base
   attr_accessible :start, :finish, :status
   
   def expected_completion_percentage
-    average_daily = points_started_or_completed / current_day_num
-    result = (average_daily * length) / total_points
-    [[0, result].max, 100].min.to_f
+    Rails.cache.fetch(self.class.name.downcase.to_sym => self, __method__.to_sym => true) do
+      average_daily = points_started_or_completed / current_day_num
+      result = (average_daily * length) / total_points
+      [[0, result].max, 100].min.to_f
+    end
   end
   
   # calculate how many points that they have started 
@@ -54,7 +56,9 @@ class Iteration < ActiveRecord::Base
   end
 
   def points_completed
-    stories.completed(self).inject(0) { |sum, story| sum + story.estimate }
+    Rails.cache.fetch(self.class.name.downcase.to_sym => self, __method__.to_sym => true) do
+      stories.completed(self).inject(0) { |sum, story| sum + story.estimate }
+    end
   end
   
   
