@@ -37,5 +37,12 @@ class CreateUsers < ActiveRecord::Migration
     end
 
     add_index :teams_users, [:user_id, :team_id], :unique => true
+
+    create_table :projects_users, :id => false do |t|
+      t.references :user, :null => false
+      t.references :project, :null => false
+    end
+
+    add_index :projects_users, [:user_id, :project_id], :unique => true
   end
 end

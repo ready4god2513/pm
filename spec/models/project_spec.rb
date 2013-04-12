@@ -11,7 +11,7 @@ describe Project do
   context "associations" do
     it { should belong_to(:team) }
     it { should have_many(:stories) }
-    it { should have_many(:users).through(:team) }
+    it { should have_and_belong_to_many(:users) }
   end
 
   context "attribute accessible" do

@@ -111,6 +111,13 @@ ActiveRecord::Schema.define(:version => 20130403224507) do
   add_index "projects", ["slug"], :name => "index_projects_on_slug", :unique => true
   add_index "projects", ["team_id"], :name => "index_projects_on_team_id"
 
+  create_table "projects_users", :id => false, :force => true do |t|
+    t.integer "user_id",    :null => false
+    t.integer "project_id", :null => false
+  end
+
+  add_index "projects_users", ["user_id", "project_id"], :name => "index_projects_users_on_user_id_and_project_id", :unique => true
+
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
     t.text     "data"
