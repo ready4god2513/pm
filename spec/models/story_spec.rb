@@ -43,11 +43,26 @@ describe Story do
       
       story.should be_started_or_completed
     end
+
+    it "should not be found" do
+      Story.started_or_completed(team).count.should eq(0)
+    end
+
+    it "should be found" do
+      story.state = team.states.offset(1).first
+      story.save
+      Story.started_or_completed(team).count.should eq(1)
+    end
+
+    it "should be found" do
+      story.state = team.states.last
+      story.save
+      Story.started_or_completed(team).count.should eq(1)
+    end
     
     it "should be started (completed)" do
       story.state = team.states.last
       story.save
-      
       story.should be_started_or_completed
     end
     

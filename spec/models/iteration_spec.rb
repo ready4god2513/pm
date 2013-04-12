@@ -5,7 +5,7 @@ describe Iteration do
   let(:team) { FactoryGirl.create(:team) }
   let(:iteration) { team.iterations.first }
   let(:project) { FactoryGirl.create(:project, team: team) }
-  let!(:story) { FactoryGirl.create(:story, iteration: iteration, estimate: 4, completed: true, project: project) }
+  let!(:story) { FactoryGirl.create(:story, iteration: iteration, estimate: 4, completed: true, project: project, state: team.states.last) }
 
   context "validations" do
     it { should validate_presence_of(:start) }
@@ -75,12 +75,14 @@ describe Iteration do
           sum.should == iteration.total_points
         end
         
-        it "calculate points started or completed", :focus do
+        it "calculate points started or completed" do
           sum = 0
           iteration.stories.each do |story|
             sum += story.estimate if story.started_or_completed?
           end
           
+          puts iteration.stories.map { |s| s.state_id }.join(", ")
+          puts iteration.stories.started_or_completed(team).to_sql
           sum.should == iteration.points_started_or_completed
         end
         

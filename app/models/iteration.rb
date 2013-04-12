@@ -23,7 +23,7 @@ class Iteration < ActiveRecord::Base
   def expected_completion_percentage
     average_daily = points_started_or_completed / current_day_num
     result = (average_daily * length) / total_points
-    [[0.00, result].max, 100.00].min
+    [[0, result].max, 100].min.to_f
   end
   
   # calculate how many points that they have started 
