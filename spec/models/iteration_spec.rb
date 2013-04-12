@@ -29,8 +29,32 @@ describe Iteration do
 
     context "points" do
 
-      it "should report expected completion as a percentage of estimated points for the iteration (max of 100%)" do
-        pending "RYAN- Make this happen."
+      # Here's the story with completion percentage-
+      # It will really help a team to learn how they are doing through the iterations
+      # But doing these calculations can be expensive CPU wise.  The initial
+      # implementation can calculate this in real-time, but we need to add a test to ensure
+      # that these numbers are cached and it is a simple read from the cache store.
+      context "Estimated completion" do
+
+        it "a float" do
+          pending "RYAN- Make this happen."
+          iteration.expected_completion_percentage.should be_a(Float)
+        end
+
+        it "greater than or equal to 0.00" do
+          pending "RYAN- Make this happen."
+          iteration.expected_completion_percentage.should >= 0.00
+        end
+
+        it "less than or equal to 100.00" do
+          pending "RYAN- Make this happen."
+          iteration.expected_completion_percentage.should <= 100.00
+        end
+
+        it "should be a call out to cache once the cache has been warmed" do
+          pending "Need to implement this as a call to redis or other cache store."
+        end
+
       end
 
       it "completed type" do
