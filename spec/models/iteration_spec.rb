@@ -74,13 +74,26 @@ describe Iteration do
           sum = iteration.stories.inject(0) { |sum, story| sum + story.estimate }
           sum.should == iteration.total_points
         end
+
+        it "total points should not be cached" do
+          Rails.cache.fetch(iteration: iteration, total_points: true).should be_empty
+        end
+
+
+        it "total points should be cached" do
+          sum = iteration.stories.inject(0) { |sum, story| sum + story.estimate }
+          total = iteration.total_points
+
+          Rails.cache.fetch(iteration: iteration, total_points: true).should eq(total)
+          Rails.cache.fetch(iteration: iteration, total_points: true).should eq(sum)
+        end
         
         it "calculate points started or completed" do
           sum = 0
           iteration.stories.each do |story|
             sum += story.estimate if story.started_or_completed?
           end
-          
+
           sum.should == iteration.points_started_or_completed
         end
         
@@ -94,8 +107,17 @@ describe Iteration do
           iteration.current_day_num.should == 2
         end
 
-        it "should be a call out to cache once the cache has been warmed" do
-          pending "Need to implement this as a call to redis or other cache store."
+        it "should not be in cache" do
+          Rails.cache.fetch(iteration: iteration, points_started_or_completed: true).should be_empty
+        end
+
+        it "should be cached" do
+          points = iteration.points_started_or_completed
+          Rails.cache.fetch(iteration: iteration, points_started_or_completed: true).should eq(points)
+        end
+
+        it "should clear the cache when stories are modified" do
+          pending "Clear cache when story modified"
         end
 
       end

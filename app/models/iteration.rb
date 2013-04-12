@@ -30,11 +30,15 @@ class Iteration < ActiveRecord::Base
   # and compare to how many they will finish by the end of the iteration
   # calulate total point in iteration period
   def points_started_or_completed
-    stories.started_or_completed(team).sum(:estimate)
+    Rails.cache.fetch(self.class.name.downcase.to_sym => self, __method__.to_sym => true) do
+      stories.started_or_completed(team).sum(:estimate)
+    end
   end
   
   def total_points
-    stories.sum(:estimate)
+    Rails.cache.fetch(self.class.name.downcase.to_sym => self, __method__.to_sym => true) do
+      stories.sum(:estimate)
+    end
   end
   
   def current_day_num
