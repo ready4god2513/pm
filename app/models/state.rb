@@ -13,6 +13,9 @@ class State < ActiveRecord::Base
   default_scope order: "sort_order ASC"
   scope :shown, where{hidden.eq false}
   
+  # Find everything except the initial state
+  scope :started, offset(1)
+  
   def shown?
     !hidden
   end

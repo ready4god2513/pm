@@ -36,19 +36,56 @@ describe Iteration do
       # that these numbers are cached and it is a simple read from the cache store.
       context "Estimated completion" do
 
+        before(:each) { Delorean.time_travel_to (iteration.start + 2.days)}
+        after(:each) { Delorean.back_to_the_present }
+
         it "a float" do
-          pending "RYAN- Make this happen."
           iteration.expected_completion_percentage.should be_a(Float)
         end
 
         it "greater than or equal to 0.00" do
-          pending "RYAN- Make this happen."
+          Iteration.any_instance.stub(:points_started_or_completed).and_return(-10)
+          Iteration.any_instance.stub(:current_day_num).and_return(13)
+          Iteration.any_instance.stub(:length).and_return(13)
+          Iteration.any_instance.stub(:total_points).and_return(100)
+          
           iteration.expected_completion_percentage.should >= 0.00
         end
 
         it "less than or equal to 100.00" do
-          pending "RYAN- Make this happen."
+          Iteration.any_instance.stub(:points_started_or_completed).and_return(10)
+          Iteration.any_instance.stub(:current_day_num).and_return(2)
+          Iteration.any_instance.stub(:length).and_return(13)
+          Iteration.any_instance.stub(:total_points).and_return(10)
+          
           iteration.expected_completion_percentage.should <= 100.00
+        end
+        
+        it "calculates the correct completion percentage" do
+          Iteration.any_instance.stub(:points_started_or_completed).and_return(10)
+          Iteration.any_instance.stub(:current_day_num).and_return(2)
+          Iteration.any_instance.stub(:length).and_return(13)
+          Iteration.any_instance.stub(:total_points).and_return(100)
+          
+          pending
+        end
+        
+        it "calculate total iteration points" do
+          sum = iteration.stories.inject(0) { |sum, story| sum + story.estimate }
+          sum.should == iteration.total_points
+        end
+        
+        it "calculate points started or completed", :focus do
+          sum = 0
+          iteration.stories.each do |story|
+            sum += story.estimate if story.started_or_completed?
+          end
+          
+          sum.should == iteration.points_started_or_completed
+        end
+        
+        it "calculate current day as a num" do
+          pending
         end
 
         it "should be a call out to cache once the cache has been warmed" do

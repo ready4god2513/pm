@@ -28,10 +28,18 @@ class Story < ActiveRecord::Base
   friendly_id :name, use: :slugged
   
   default_scope order: "priority desc"
+  
+  scope :started_or_completed, lambda { |team|
+    where{state_id.in my{team.states.started.map(&:id)}}
+  }
 
   scope :completed, lambda {|iteration|
     where{completed.eq true}
   }
+  
+  def started_or_completed?
+    state != iteration.team.states.first
+  end
   
   def shown?
     story_type.shown? && state.shown?

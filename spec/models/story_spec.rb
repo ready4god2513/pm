@@ -30,6 +30,35 @@ describe Story do
     it { should_not allow_mass_assignment_of :story_type_id }
     it { should_not allow_mass_assignment_of :state_id }
   end
+  
+  context "status" do
+    
+    let(:team) { FactoryGirl.create(:team) }
+    let(:project) { FactoryGirl.create(:project, team: team) }
+    let(:story) { FactoryGirl.create(:story, project: project, iteration: team.iterations.first, state: team.states.first) }
+    
+    it "should be started (started)" do
+      story.state = team.states.offset(1).first
+      story.save
+      
+      story.should be_started_or_completed
+    end
+    
+    it "should be started (completed)" do
+      story.state = team.states.last
+      story.save
+      
+      story.should be_started_or_completed
+    end
+    
+    it "should not be started" do
+      story.state = team.states.first
+      story.save
+      
+      story.should_not be_started_or_completed
+    end
+    
+  end
 
   context "notifications" do
 

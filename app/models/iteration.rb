@@ -20,6 +20,27 @@ class Iteration < ActiveRecord::Base
   
   attr_accessible :start, :finish, :status
   
+  def expected_completion_percentage
+    average_daily = points_started_or_completed / current_day_num
+    result = (average_daily * length) / total_points
+    [[0.00, result].max, 100.00].min
+  end
+  
+  # calculate how many points that they have started 
+  # and compare to how many they will finish by the end of the iteration
+  # calulate total point in iteration period
+  def points_started_or_completed
+    stories.started_or_completed(team).sum(:estimate)
+  end
+  
+  def total_points
+    stories.sum(:estimate)
+  end
+  
+  def current_day_num
+    (Time.zone.now.to_date - start.to_date).to_i
+  end
+  
   def date_range
     "#{start.strftime(DATE_FORMAT)} - #{finish.strftime(DATE_FORMAT)}"
   end
