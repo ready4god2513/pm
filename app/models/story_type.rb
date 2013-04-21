@@ -18,5 +18,9 @@ class StoryType < ActiveRecord::Base
   def shown?
     !hidden
   end
+
+  def name
+    read_attribute(:name).try(:titleize)
+  end
   
 end

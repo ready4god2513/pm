@@ -5,11 +5,13 @@ class CreateIterations < ActiveRecord::Migration
       t.datetime :start
       t.datetime :finish
       t.string :status
+      t.string :slug
 
       t.timestamps
     end
     
     add_index :iterations, :team_id
+    add_index :iterations, :slug
     add_index :iterations, [:status, :team_id]
   end
 end

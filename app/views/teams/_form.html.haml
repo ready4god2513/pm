@@ -10,6 +10,7 @@
       = setting_fields.input :iteration_start_day, as: :select, collection: Date::DAYNAMES, selected: "Monday"
       = setting_fields.input :planning_mode, as: :select, collection: PlanningMode.all.map { |p| ["#{p.to_s.titleize} - #{p.description}", p.to_s]}, selected: "precise"
       = setting_fields.input :points_per_iteration
+      = setting_fields.input :estimates_available
     
   
   .form-actions

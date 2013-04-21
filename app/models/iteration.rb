@@ -7,6 +7,7 @@ class Iteration < ActiveRecord::Base
   
   belongs_to :team
   has_many :stories
+  has_many :projects, through: :stories
   
   validates_presence_of :start, :finish
   
@@ -19,6 +20,9 @@ class Iteration < ActiveRecord::Base
   classy_enum_attr :status, enum: "IterationState"
   
   attr_accessible :start, :finish, :status
+
+  extend FriendlyId
+  friendly_id :date_range, use: :slugged
   
   def expected_completion_percentage
     Rails.cache.fetch(self.class.name.downcase.to_sym => self, __method__.to_sym => true) do
@@ -50,6 +54,8 @@ class Iteration < ActiveRecord::Base
   def date_range
     "#{start.strftime(DATE_FORMAT)} - #{finish.strftime(DATE_FORMAT)}"
   end
+
+  alias :name :date_range
 
   def length
     (finish.to_date - start.to_date).to_i

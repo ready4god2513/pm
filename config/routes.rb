@@ -15,7 +15,7 @@ Nomadpm::Application.routes.draw do
       end
     end
     
-    
+    resources :stories, only: [:new, :create]
     resources :iterations
     resources :users
     resources :story_types, path: "story-types"

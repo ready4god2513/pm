@@ -1,0 +1,11 @@
+= title(resource.date_range)
+
+%h4 Stories
+= link_to "New Story", new_story_path
+= render "stories/list", stories: resource.stories
+
+%h4 Projects
+= link_to "New Project", new_project_path
+%ul
+  - resource.projects.each do |project|
+    %li= link_to project.name, project

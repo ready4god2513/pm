@@ -1,0 +1,5 @@
+= title(resource.name)
+
+%h4 Stories
+= link_to "New Story", new_project_story_path(resource)
+= render "stories/list", stories: resource.stories

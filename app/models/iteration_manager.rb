@@ -3,8 +3,9 @@ class IterationManager
   class << self
 
     def create_next_iterations(num, team)
-
-      next_date = team.iterations.last.try(:finish).if_blank? { Time.zone.now }
+      next_date = team.iterations.last.try(:finish).if_blank? do 
+        Chronic.parse("next #{team.setting.iteration_start_day}") - 1.day
+      end + 1.day
       
       (num).times do
         i = team.iterations.build

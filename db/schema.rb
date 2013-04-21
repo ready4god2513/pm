@@ -68,10 +68,12 @@ ActiveRecord::Schema.define(:version => 20130403224507) do
     t.datetime "start"
     t.datetime "finish"
     t.string   "status"
+    t.string   "slug"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  add_index "iterations", ["slug"], :name => "index_iterations_on_slug"
   add_index "iterations", ["status", "team_id"], :name => "index_iterations_on_status_and_team_id"
   add_index "iterations", ["team_id"], :name => "index_iterations_on_team_id"
 
@@ -134,6 +136,7 @@ ActiveRecord::Schema.define(:version => 20130403224507) do
     t.string   "iteration_start_day"
     t.string   "planning_mode"
     t.integer  "points_per_iteration"
+    t.string   "estimates_available"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
   end

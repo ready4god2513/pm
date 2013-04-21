@@ -59,6 +59,7 @@ group :development do
 end
 
 group :development, :test do
+  gem "rails-footnotes", ">= 3.7.9"
   gem "spork-rails"
   gem "rspec-rails"
   gem "shoulda-matchers", "1.4.2"

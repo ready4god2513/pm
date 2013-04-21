@@ -1,0 +1,17 @@
+= simple_form_for(resource) do |f|
+
+  = f.input :name
+
+  = f.association :project, collection: team.projects
+  = f.association :iteration, collection: team.iterations, include_blank: false
+  = f.association :state, collection: team.states, include_blank: false
+  = f.association :story_type, collection: team.story_types, include_blank: false
+  = f.input :estimate, as: :select, collection: team.setting.estimates_available_as_array
+
+  = f.association :managers, as: :check_boxes
+  = f.association :developers, as: :check_boxes
+
+  = f.input :description
+
+  .form-actions
+    = f.submit class: "btn btn-primary"
