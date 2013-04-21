@@ -52,6 +52,7 @@ class Iteration < ActiveRecord::Base
   end
   
   def date_range
+    return if start.blank? || finish.blank?
     "#{start.strftime(DATE_FORMAT)} - #{finish.strftime(DATE_FORMAT)}"
   end
 
